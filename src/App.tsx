@@ -1,10 +1,14 @@
-import { Input } from "./components/Input";
+import { Button } from "./components/Button";
 
 const App = () => {
   return (
     <>
-      <Input label="Email" placeholder="Digite aqui seu email" />
-      <Input label="Email" placeholder="Digite aqui seu email" />
+      <Button color="pink" size="xxlarge">Cadastrar</Button>
+      <Button color="pink" size="xlarge">Cadastrar</Button>
+      <Button color="dark-grey" size="large">Cadastrar</Button>
+      <Button color="dark-grey" size="medium">Cadastrar</Button>
+      <Button color="gray" size="small">Cadastrar</Button>
+      <Button color="gray" size="xsmall">Cadastrar</Button>
     </>
   );
 };
