@@ -6,7 +6,7 @@ interface InputProps {
   placeholder: string;
   type: React.HTMLInputTypeAttribute;
   name: string;
-  register: UseFormRegister<FieldValues>;
+  register: any;
   disabled?: boolean;
   defaultValue?: string | number | readonly string[];
 }
