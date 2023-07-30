@@ -1,9 +1,9 @@
-import { FormSignUp } from "./components/FormSignUp";
+import { SignUp } from "./pages/SignUp";
 
 const App = () => {
   return (
     <>
-      <FormSignUp />
+      <SignUp />
     </>
   );
 };
