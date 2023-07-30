@@ -27,6 +27,24 @@ const Container = styled.form`
   & > :is(h1, h2) {
     margin-bottom: 22px;
   }
+
+  & > .divButtons {
+    width: 100%;
+    height: 170px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    & > p {
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 18px;
+
+      color: var(--grey-1);
+    }
+  }
 `;
 
 export { Container };

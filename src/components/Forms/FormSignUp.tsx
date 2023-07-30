@@ -1,6 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { FormLayout } from "./form.layout";
 import { useForm } from "react-hook-form";
-import { Container } from "./style";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import * as yup from "yup";
@@ -38,12 +38,10 @@ const FormSignUp = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmitFunction = (data: any) => {
-    console.log(data);
-  };
+  const onSubmitFunction = (data: object) => {};
 
   return (
-    <Container onSubmit={handleSubmit(onSubmitFunction)}>
+    <FormLayout onSubmit={handleSubmit(onSubmitFunction)}>
       <h1>Crie sua conta</h1>
 
       <h2>Rapido e grátis, vamos nessa</h2>
@@ -94,7 +92,7 @@ const FormSignUp = () => {
       <Button type="submit" color="pink" size="xxlarge">
         Cadastrar
       </Button>
-    </Container>
+    </FormLayout>
   );
 };
 

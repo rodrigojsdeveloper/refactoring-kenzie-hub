@@ -1,4 +1,4 @@
-import { FormSignUp } from "../../components/FormSignUp";
+import { FormSignUp } from "../../components/Forms/FormSignUp";
 import { Button } from "../../components/Button";
 import { Container, Content } from "./style";
 
