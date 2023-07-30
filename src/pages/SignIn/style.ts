@@ -7,6 +7,10 @@ const Container = styled.div`
   align-items: center;
 
   padding: 49.46px 12px 46px 12px;
+
+  & > form {
+    margin-top: 35.7px;
+  }
 `;
 
 export { Container };

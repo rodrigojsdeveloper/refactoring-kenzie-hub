@@ -1,12 +1,5 @@
-import { SignIn } from "./pages/SignIn";
-import { SignUp } from "./pages/SignUp";
+import { AllRoutes } from "./routes";
 
-const App = () => {
-  return (
-    <>
-      <SignIn />
-    </>
-  );
-};
+const App = () => <AllRoutes />;
 
 export { App };

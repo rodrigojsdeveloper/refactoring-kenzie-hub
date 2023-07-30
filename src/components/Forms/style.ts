@@ -4,10 +4,13 @@ const Container = styled.form`
   width: 100%;
   max-width: 375px;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   border-radius: 4px;
   background-color: var(--grey-3);
 
-  text-align: center;
   padding: 42px 22.5px 28.19px 22.5px;
 
   & > h1 {
@@ -26,6 +29,7 @@ const Container = styled.form`
 
   & > :is(h1, h2) {
     margin-bottom: 22px;
+    text-align: center;
   }
 
   & > .divButtons {
@@ -41,9 +45,14 @@ const Container = styled.form`
       font-weight: 600;
       font-size: 12px;
       line-height: 18px;
+      text-align: center;
 
       color: var(--grey-1);
     }
+  }
+
+  @media (max-width: 425px) {
+    padding: 34px 18px 34px 18px;
   }
 `;
 

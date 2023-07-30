@@ -1,4 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
 import { FormLayout } from "./form.layout";
 import { useForm } from "react-hook-form";
 import { Button } from "../Button";
@@ -6,6 +7,8 @@ import { Input } from "../Input";
 import * as yup from "yup";
 
 const FormSignIn = () => {
+  const navigate = useNavigate();
+
   const schema = yup.object().shape({
     email: yup.string().required("Email obrigatório").email("Email inválido"),
     password: yup.string().required("Senha obrigatória"),
@@ -49,7 +52,7 @@ const FormSignIn = () => {
 
         <p>Ainda não possui uma conta?</p>
 
-        <Button color="gray" size="xxlarge">
+        <Button color="gray" size="xxlarge" onClick={() => navigate("/")}>
           Cadastre-se
         </Button>
       </div>
