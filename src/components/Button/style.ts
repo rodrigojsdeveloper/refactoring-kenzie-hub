@@ -76,6 +76,10 @@ const Container = styled.button<IButtonStyle>`
         return css`
           max-width: 55.49px;
           height: 32px;
+
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 28.42px;
         `;
 
       case "xsmall":
