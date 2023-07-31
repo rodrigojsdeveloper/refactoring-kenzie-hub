@@ -1,5 +1,6 @@
 import { Container } from "./style";
 import { Button } from "../Button";
+import { Card } from "../Card";
 
 const List = () => {
   return (
@@ -12,7 +13,11 @@ const List = () => {
         </Button>
       </div>
 
-      <menu></menu>
+      <menu>
+        <Card />
+        <Card />
+        <Card />
+      </menu>
     </Container>
   );
 };

@@ -20,7 +20,7 @@ const Container = styled.form`
   }
 
   & > h2 {
-    font-size: 400;
+    font-weight: 400;
     font-size: 12px;
     line-height: 22px;
 
@@ -28,8 +28,8 @@ const Container = styled.form`
   }
 
   & > :is(h1, h2) {
-    margin-bottom: 22px;
     text-align: center;
+    margin-bottom: 22px;
   }
 
   & > .divButtons {
@@ -51,8 +51,8 @@ const Container = styled.form`
     }
   }
 
-  @media (max-width: 425px) {
-    padding: 34px 18px 34px 18px;
+  @media (max-width: 768px) {
+    padding: 34px 17.99px;
   }
 `;
 

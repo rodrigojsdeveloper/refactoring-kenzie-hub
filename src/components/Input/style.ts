@@ -49,6 +49,13 @@ const Container = styled.div`
       opacity: 0.5;
       cursor: not-allowed;
     }
+
+    @media (max-width: 768px) {
+      padding: 0 12.99px;
+
+      font-size: 12.99px;
+      line-height: 21.1px;
+    }
   }
 `;
 

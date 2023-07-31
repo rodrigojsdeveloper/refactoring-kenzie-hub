@@ -12,7 +12,8 @@ const Container = styled.header<IHeaderStyleProps>`
   justify-content: center;
   align-items: center;
 
-  border: 1.5px solid var(--grey-3);
+  padding: 17px 10.7px;
+  border-bottom: 1.5px solid var(--grey-3);
 
   ${({ height }) => {
     switch (height) {
@@ -46,6 +47,15 @@ const Container = styled.header<IHeaderStyleProps>`
       line-height: 22px;
 
       color: var(--grey-1);
+    }
+  }
+
+  .divSubHeader {
+    @media (max-width: 768px) {
+      height: 60px;
+
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 `;

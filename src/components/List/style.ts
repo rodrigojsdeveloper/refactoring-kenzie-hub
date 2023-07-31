@@ -5,7 +5,8 @@ const Container = styled.div`
   max-width: 775px;
   height: 469px;
 
-  margin: 0 auto;
+  padding: 0 12px;
+  margin: 0 auto 14.63px auto;
 
   & > div {
     width: 100%;
@@ -30,6 +31,10 @@ const Container = styled.div`
     padding: 23px 26px;
     border-radius: 4px;
     background-color: var(--grey-3);
+
+    @media (max-width: 768px) {
+      padding: 22px 8.5px;
+    }
   }
 `;
 
