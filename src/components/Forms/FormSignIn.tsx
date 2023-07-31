@@ -5,9 +5,16 @@ import { useForm } from "react-hook-form";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import * as yup from "yup";
+import api from "../../services/api";
+import { useContext, useState } from "react";
+import { TechnologyContext } from "../../contexts/TechnologyContext";
 
 const FormSignIn = () => {
+  const { setUser } = useContext(TechnologyContext);
+
   const navigate = useNavigate();
+
+  const [load, setLoad] = useState<boolean>(false);
 
   const schema = yup.object().shape({
     email: yup.string().required("Email obrigatório").email("Email inválido"),
@@ -23,7 +30,25 @@ const FormSignIn = () => {
   });
 
   const onSubmitFunction = (data: any) => {
-    console.log(data);
+    setLoad(true);
+
+    api
+      .post("sessions", data)
+      .then((res) => {
+        setUser(res.data.user);
+
+        localStorage.setItem(
+          "Kenzie Hub:token",
+          JSON.stringify(JSON.stringify(res.data)["token"])
+        );
+
+        localStorage.setItem(
+          "Kenzie Hub:user",
+          JSON.stringify(JSON.stringify(res.data)["user"])
+        );
+      })
+      .catch((error) => console.error("error", error))
+      .finally(() => setLoad(false));
   };
 
   return (
@@ -46,8 +71,8 @@ const FormSignIn = () => {
       />
 
       <div className="divButtons">
-        <Button type="submit" color="pink" size="xxlarge">
-          Entrar
+        <Button type="submit" color="pink" size="xxlarge" disabled={load}>
+          {load ? "Entrando..." : "Entrar"}
         </Button>
 
         <p>Ainda não possui uma conta?</p>
