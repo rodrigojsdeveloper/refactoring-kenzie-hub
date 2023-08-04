@@ -18,3 +18,16 @@ export interface ITechnologyProps {
 export interface ITechnology {
   technology: ITechnologyProps;
 }
+
+export interface IChildren {
+  children: React.ReactNode;
+}
+
+export interface IHeaderModal {
+  title: string;
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IModalCreateTechnology {
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+}

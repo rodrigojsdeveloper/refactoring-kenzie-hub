@@ -30,6 +30,10 @@ export default createGlobalStyle`
 
     // Shadow
 		--shadow-0: rgba(0, 0, 0, 0.4);
+    --shadow-1: rgba(0, 0, 0, 0.5);
+
+    // Transparent
+    --transparent: transparent;
   }
 
   body {

@@ -1,28 +1,44 @@
 import { TechnologyContext } from "../../contexts/TechnologyContext";
+import { ModalCreateTechnology } from "../ModalCreateTechnology";
+import { ModalBackground } from "../ModalBackground";
+import { useContext, useState } from "react";
 import { Container } from "./style";
 import { Button } from "../Button";
-import { useContext } from "react";
 import { Card } from "../Card";
 
 const List = () => {
   const { technologies } = useContext(TechnologyContext);
 
+  const [modal, setModal] = useState<boolean>(false);
+
   return (
-    <Container>
-      <div>
-        <h2>Tecnologias</h2>
+    <>
+      {modal && (
+        <ModalBackground>
+          <ModalCreateTechnology setModal={setModal} />
+        </ModalBackground>
+      )}
 
-        <Button color="dark-grey" size="xsmall">
-          +
-        </Button>
-      </div>
+      <Container>
+        <div>
+          <h2>Tecnologias</h2>
 
-      <menu>
-        {technologies.map((technology) => (
-          <Card technology={technology} key={technology.id} />
-        ))}
-      </menu>
-    </Container>
+          <Button
+            color="dark-grey"
+            size="xsmall"
+            onClick={() => setModal(true)}
+          >
+            +
+          </Button>
+        </div>
+
+        <menu>
+          {technologies.map((technology) => (
+            <Card technology={technology} key={technology.id} />
+          ))}
+        </menu>
+      </Container>
+    </>
   );
 };
 

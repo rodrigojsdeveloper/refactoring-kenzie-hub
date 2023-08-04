@@ -1,8 +1,5 @@
 import { TechnologyContextProvider } from "./TechnologyContext";
-
-interface IChildren {
-  children: React.ReactNode;
-}
+import { IChildren } from "../interfaces";
 
 const Providers = ({ children }: IChildren) => {
   return <TechnologyContextProvider>{children}</TechnologyContextProvider>;
