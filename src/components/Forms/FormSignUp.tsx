@@ -1,18 +1,18 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
 import { FormLayout } from "./form.layout";
 import { useForm } from "react-hook-form";
+import api from "../../services/api";
+import { Select } from "../Select";
 import { Button } from "../Button";
 import { Input } from "../Input";
-import * as yup from "yup";
-import { Select } from "../Select";
-import api from "../../services/api";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import * as yup from "yup";
 
 const FormSignUp = () => {
   const navigate = useNavigate();
 
-  const [load, setLoad] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const schema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),
@@ -39,16 +39,12 @@ const FormSignUp = () => {
     course_module: yup.string().required("Módulo obrigatório"),
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onSubmitFunction = (data: object) => {
-    setLoad(true);
+    setIsLoading(true);
 
     Reflect.deleteProperty(data, "repeat_password");
 
@@ -56,7 +52,7 @@ const FormSignUp = () => {
       .post("/users", data)
       .then(() => navigate("/signin"))
       .catch((error) => console.error("error", error))
-      .finally(() => setLoad(false));
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -118,8 +114,8 @@ const FormSignUp = () => {
         <option>Quarto módulo</option>
       </Select>
 
-      <Button type="submit" color="pink" size="xxlarge" disabled={load}>
-        {load ? "Cadastrando..." : "Cadastrar"}
+      <Button type="submit" color="pink" size="xxlarge" disabled={isLoading}>
+        {isLoading ? "Cadastrando..." : "Cadastrar"}
       </Button>
     </FormLayout>
   );

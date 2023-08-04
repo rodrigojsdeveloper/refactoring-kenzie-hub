@@ -1,3 +1,4 @@
+import { animationForm } from "../../animations";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -5,6 +6,8 @@ const Container = styled.div`
   justify-content: center;
 
   padding: 49.46px 12px 46px 12px;
+
+  animation: ${animationForm} 1s;
 `;
 
 const Content = styled.div`

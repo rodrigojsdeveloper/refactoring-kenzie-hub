@@ -31,3 +31,8 @@ export interface IHeaderModal {
 export interface IModalCreateTechnology {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+export interface IModalEditAndDeleteTechnology {
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  currentTechnology: ITechnologyProps;
+}

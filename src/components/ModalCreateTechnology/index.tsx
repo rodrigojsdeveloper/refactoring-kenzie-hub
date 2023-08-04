@@ -1,5 +1,7 @@
+import { TechnologyContext } from "../../contexts/TechnologyContext";
 import { IModalCreateTechnology } from "../../interfaces";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useContext, useState } from "react";
 import { HeaderModal } from "../HeaderModal";
 import { useForm } from "react-hook-form";
 import api from "../../services/api";
@@ -7,10 +9,11 @@ import { Container } from "./style";
 import { Select } from "../Select";
 import { Button } from "../Button";
 import { Input } from "../Input";
-import { useState } from "react";
 import * as yup from "yup";
 
 const ModalCreateTechnology = ({ setModal }: IModalCreateTechnology) => {
+  const { addTechnology } = useContext(TechnologyContext);
+
   const token = localStorage.getItem("Kenzie Hub: token") ?? "";
 
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +30,7 @@ const ModalCreateTechnology = ({ setModal }: IModalCreateTechnology) => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmitFunction = (data) => {
+  const onSubmitFunction = (data: any) => {
     setIsLoading(true);
 
     api
@@ -36,7 +39,7 @@ const ModalCreateTechnology = ({ setModal }: IModalCreateTechnology) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => console.log)
+      .then((res) => addTechnology(res.data))
       .catch((error) => console.error("error", error))
       .finally(() => setIsLoading(false));
   };

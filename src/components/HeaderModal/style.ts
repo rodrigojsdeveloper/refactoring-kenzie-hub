@@ -13,16 +13,13 @@ const Container = styled.div`
 
   & > h2 {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 16px;
   }
 
   & > button {
-    background-color: var(--transparent);
-  }
-
-  & > :is(h2, button) {
     color: var(--grey-1);
+    background-color: var(--transparent);
   }
 `;
 

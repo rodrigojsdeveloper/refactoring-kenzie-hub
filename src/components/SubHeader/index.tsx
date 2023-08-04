@@ -1,12 +1,16 @@
+import { TechnologyContext } from "../../contexts/TechnologyContext";
 import { Container } from "../Header/style";
+import { useContext } from "react";
 
 const SubHeader = () => {
+  const { user } = useContext(TechnologyContext);
+
   return (
     <Container height="subHeader">
       <div className="divSubHeader">
-        <h1>Olá, Samuel Leão</h1>
+        <h1>Olá, {user.name}</h1>
 
-        <p>Primeiro módulo (Introdução ao Frontend)</p>
+        <p>{user.course_module}</p>
       </div>
     </Container>
   );

@@ -21,7 +21,7 @@ const Container = styled.div`
     padding-left: 30px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 425px) {
     padding-right: 20px;
     padding-left: 20px;
   }

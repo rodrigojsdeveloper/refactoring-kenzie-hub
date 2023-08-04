@@ -10,41 +10,33 @@ import { Input } from "../Input";
 import * as yup from "yup";
 
 const FormSignIn = () => {
-  const { setUser } = useContext(TechnologyContext);
-
   const navigate = useNavigate();
 
-  const [load, setLoad] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const schema = yup.object().shape({
     email: yup.string().required("Email obrigatório").email("Email inválido"),
     password: yup.string().required("Senha obrigatória"),
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   });
 
   const onSubmitFunction = (data: any) => {
-    setLoad(true);
+    setIsLoading(true);
 
     api
       .post("sessions", data)
       .then((res) => {
-        setUser(res.data.user);
+        localStorage.setItem("Kenzie Hub: token", res.data.token);
 
-        sessionStorage.setItem("Kenzie Hub: token", res.data.token);
-
-        sessionStorage.setItem("Kenzie Hub: id", res.data.user.id);
+        localStorage.setItem("Kenzie Hub: id", res.data.user.id);
 
         return navigate("/dashboard");
       })
       .catch((error) => console.error("error", error))
-      .finally(() => setLoad(false));
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -67,8 +59,8 @@ const FormSignIn = () => {
       />
 
       <div className="divButtons">
-        <Button type="submit" color="pink" size="xxlarge" disabled={load}>
-          {load ? "Entrando..." : "Entrar"}
+        <Button type="submit" color="pink" size="xxlarge" disabled={isLoading}>
+          {isLoading ? "Entrando..." : "Entrar"}
         </Button>
 
         <p>Ainda não possui uma conta?</p>

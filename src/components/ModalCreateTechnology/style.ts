@@ -1,3 +1,4 @@
+import { animationForm } from "../../animations";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -7,6 +8,8 @@ const Container = styled.div`
 
   border-radius: 4px;
   background-color: var(--grey-3);
+
+  animation: ${animationForm} 1s;
 
   & > form {
     width: 100%;

@@ -1,18 +1,12 @@
+import { IChildren, ITechnologyProps, IUser } from "../../interfaces";
 import { createContext, useEffect, useState } from "react";
-import { ITechnologyProps } from "../../interfaces";
 import api from "../../services/api";
 
-interface IChildren {
-  children: React.ReactNode;
-}
-interface IUser {
-  id: number;
-  name: string;
-}
 interface ITechnologyContextData {
   technologies: ITechnologyProps[];
   setTechnologies: React.Dispatch<React.SetStateAction<ITechnologyProps[]>>;
-  setUser: React.Dispatch<React.SetStateAction<IUser>>;
+  user: IUser;
+  addTechnology: (technology: ITechnologyProps) => void;
 }
 
 export const TechnologyContext = createContext({} as ITechnologyContextData);
@@ -20,15 +14,25 @@ export const TechnologyContext = createContext({} as ITechnologyContextData);
 export const TechnologyContextProvider = ({ children }: IChildren) => {
   const token = localStorage.getItem("Kenzie Hub: token");
 
+  const id = localStorage.getItem("Kenzie Hub: id");
+
   const [user, setUser] = useState<IUser>({} as IUser);
 
   const [technologies, setTechnologies] = useState<ITechnologyProps[]>([]);
 
+  const addTechnology = (technology: ITechnologyProps) =>
+    setTechnologies([...technologies, technology]);
+
   useEffect(() => {
     if (token) {
       api
-        .get(`users/${user.id}`)
+        .get(`users/${id}`)
         .then((res) => setTechnologies(res.data.techs))
+        .catch((error) => console.error("error", error));
+
+      api
+        .get(`users/${id}`)
+        .then((res) => setUser(res.data))
         .catch((error) => console.error("error", error));
     }
   }, []);
@@ -38,7 +42,8 @@ export const TechnologyContextProvider = ({ children }: IChildren) => {
       value={{
         technologies,
         setTechnologies,
-        setUser,
+        user,
+        addTechnology,
       }}
     >
       {children}

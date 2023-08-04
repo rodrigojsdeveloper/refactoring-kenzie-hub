@@ -9,6 +9,7 @@ interface InputProps {
   register: any;
   disabled?: boolean;
   defaultValue?: string | number | readonly string[];
+  value?: string | number | readonly string[];
 }
 
 const Input = ({
@@ -19,6 +20,7 @@ const Input = ({
   register,
   defaultValue,
   disabled,
+  value,
 }: InputProps) => {
   return (
     <Container>
@@ -31,6 +33,7 @@ const Input = ({
         {...register(name)}
         placeholder={placeholder}
         defaultValue={defaultValue}
+        value={value}
       />
     </Container>
   );
