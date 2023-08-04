@@ -1,11 +1,12 @@
+import { ITechnology } from "../../interfaces";
 import { Container } from "./style";
 
-const Card = () => {
+const Card = ({ technology }: ITechnology) => {
   return (
     <Container>
-      <p>React</p>
+      <p>{technology.title}</p>
 
-      <p>Iniciante</p>
+      <p>{technology.status}</p>
     </Container>
   );
 };

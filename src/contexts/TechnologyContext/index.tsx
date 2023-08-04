@@ -1,20 +1,17 @@
 import { createContext, useEffect, useState } from "react";
+import { ITechnologyProps } from "../../interfaces";
 import api from "../../services/api";
 
 interface IChildren {
   children: React.ReactNode;
-}
-interface ITechnology {
-  id: number;
-  name: string;
 }
 interface IUser {
   id: number;
   name: string;
 }
 interface ITechnologyContextData {
-  technologies: ITechnology[];
-  setTechnologies: React.Dispatch<React.SetStateAction<ITechnology[]>>;
+  technologies: ITechnologyProps[];
+  setTechnologies: React.Dispatch<React.SetStateAction<ITechnologyProps[]>>;
   setUser: React.Dispatch<React.SetStateAction<IUser>>;
 }
 
@@ -25,7 +22,7 @@ export const TechnologyContextProvider = ({ children }: IChildren) => {
 
   const [user, setUser] = useState<IUser>({} as IUser);
 
-  const [technologies, setTechnologies] = useState<ITechnology[]>([]);
+  const [technologies, setTechnologies] = useState<ITechnologyProps[]>([]);
 
   useEffect(() => {
     if (token) {

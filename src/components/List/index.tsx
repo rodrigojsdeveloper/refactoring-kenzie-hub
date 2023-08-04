@@ -1,8 +1,12 @@
+import { TechnologyContext } from "../../contexts/TechnologyContext";
 import { Container } from "./style";
 import { Button } from "../Button";
+import { useContext } from "react";
 import { Card } from "../Card";
 
 const List = () => {
+  const { technologies } = useContext(TechnologyContext);
+
   return (
     <Container>
       <div>
@@ -14,9 +18,9 @@ const List = () => {
       </div>
 
       <menu>
-        <Card />
-        <Card />
-        <Card />
+        {technologies.map((technology) => (
+          <Card technology={technology} key={technology.id} />
+        ))}
       </menu>
     </Container>
   );

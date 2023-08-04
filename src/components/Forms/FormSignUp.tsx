@@ -4,8 +4,16 @@ import { useForm } from "react-hook-form";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import * as yup from "yup";
+import { Select } from "../Select";
+import api from "../../services/api";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const FormSignUp = () => {
+  const navigate = useNavigate();
+
+  const [load, setLoad] = useState<boolean>(false);
+
   const schema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),
     email: yup.string().required("Email obrigatório").email("Email inválido"),
@@ -28,6 +36,7 @@ const FormSignUp = () => {
       .oneOf([yup.ref("password")], "Passwords must match"),
     bio: yup.string().required("Bio obrigatória"),
     contact: yup.string().required("Contato obrigatório"),
+    course_module: yup.string().required("Módulo obrigatório"),
   });
 
   const {
@@ -38,7 +47,17 @@ const FormSignUp = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmitFunction = (data: object) => {};
+  const onSubmitFunction = (data: object) => {
+    setLoad(true);
+
+    Reflect.deleteProperty(data, "repeat_password");
+
+    api
+      .post("/users", data)
+      .then(() => navigate("/signin"))
+      .catch((error) => console.error("error", error))
+      .finally(() => setLoad(false));
+  };
 
   return (
     <FormLayout onSubmit={handleSubmit(onSubmitFunction)}>
@@ -88,9 +107,19 @@ const FormSignUp = () => {
         register={register}
         type="text"
       />
+      <Select
+        label="Selecionar módulo"
+        name="course_module"
+        register={register}
+      >
+        <option>Primeiro módulo</option>
+        <option>Segundo módulo</option>
+        <option>Terceiro módulo</option>
+        <option>Quarto módulo</option>
+      </Select>
 
-      <Button type="submit" color="pink" size="xxlarge">
-        Cadastrar
+      <Button type="submit" color="pink" size="xxlarge" disabled={load}>
+        {load ? "Cadastrando..." : "Cadastrar"}
       </Button>
     </FormLayout>
   );
