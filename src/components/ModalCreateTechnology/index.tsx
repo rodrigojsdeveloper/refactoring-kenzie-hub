@@ -39,7 +39,11 @@ const ModalCreateTechnology = ({ setModal }: IModalCreateTechnology) => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => addTechnology(res.data))
+      .then((res) => {
+        setModal(false);
+
+        addTechnology(res.data);
+      })
       .catch((error) => console.error("error", error))
       .finally(() => setIsLoading(false));
   };

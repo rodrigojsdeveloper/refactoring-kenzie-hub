@@ -29,7 +29,7 @@ const Container = styled.div`
     align-items: center;
 
     & > button:nth-last-child(1) {
-      margin-left: 25px;
+      margin-left: 15px;
     }
   }
 

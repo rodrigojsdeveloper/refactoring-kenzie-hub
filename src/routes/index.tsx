@@ -1,3 +1,4 @@
+import { NotFound } from "../pages/NotFound/inde";
 import { Routes, Route } from "react-router-dom";
 import { Dashboard } from "../pages/Dashboard";
 import { SignUp } from "../pages/SignUp";
@@ -9,6 +10,7 @@ const AllRoutes = () => {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="/" element={<SignUp />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

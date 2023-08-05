@@ -1,18 +1,21 @@
+import { TechnologyContext } from "../../contexts/TechnologyContext";
 import { IModalEditAndDeleteTechnology } from "../../interfaces";
 import { HeaderModal } from "../HeaderModal";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import api from "../../services/api";
 import { Container } from "./style";
 import { Select } from "../Select";
 import { Button } from "../Button";
-import { useState } from "react";
 import { Input } from "../Input";
 
 const ModalEditAndDeleteTechnology = ({
   setModal,
   currentTechnology,
 }: IModalEditAndDeleteTechnology) => {
-  const token = localStorage.getItem("Kenzie Hub:token") ?? "";
+  const { technologies, setTechnologies } = useContext(TechnologyContext);
+
+  const token = localStorage.getItem("Kenzie Hub: token") ?? "";
 
   const [isLoadingEdit, setIsLoadingEdit] = useState(false);
 
@@ -35,7 +38,17 @@ const ModalEditAndDeleteTechnology = ({
           },
         }
       )
-      .then((_) => {})
+      .then((_) => {
+        setModal(false);
+
+        const newTechnology = { ...currentTechnology, status };
+
+        const newListTechnologies = technologies.filter(
+          (technology) => technology.id !== currentTechnology.id
+        );
+
+        setTechnologies([...newListTechnologies, newTechnology]);
+      })
       .catch((error) => console.error("error", error))
       .finally(() => setIsLoadingEdit(false));
   };
@@ -49,7 +62,15 @@ const ModalEditAndDeleteTechnology = ({
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((_) => {})
+      .then((_) => {
+        setModal(false);
+
+        const newListTechnologies = technologies.filter(
+          (technology) => technology.id !== currentTechnology.id
+        );
+
+        setTechnologies(newListTechnologies);
+      })
       .catch((error) => console.error("error", error))
       .finally(() => setIsLoadingDelete(false));
   };

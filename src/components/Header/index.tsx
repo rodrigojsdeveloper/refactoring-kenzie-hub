@@ -15,7 +15,7 @@ const Header = () => {
           color="dark-grey"
           size="small"
           onClick={() => {
-            sessionStorage.clear();
+            localStorage.clear();
 
             return navigate("/");
           }}

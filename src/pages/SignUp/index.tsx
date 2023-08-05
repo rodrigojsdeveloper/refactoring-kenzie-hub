@@ -3,9 +3,16 @@ import { Button } from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import { Container, Content } from "./style";
 import { Logo } from "../../components/Logo";
+import { useEffect } from "react";
 
 const SignUp = () => {
+  const token = localStorage.getItem("Kenzie Hub: token") ?? "";
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (token) return navigate("/signin");
+  }, [token]);
 
   return (
     <Container>
@@ -16,7 +23,7 @@ const SignUp = () => {
           <Button
             color="dark-grey"
             size="medium"
-            onClick={() => navigate("/signin")}
+            onClick={() => navigate("/dashboard")}
           >
             Voltar
           </Button>
