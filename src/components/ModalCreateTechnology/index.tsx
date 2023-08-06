@@ -13,7 +13,7 @@ import { Input } from "../Input";
 import * as yup from "yup";
 
 const ModalCreateTechnology = ({ setModal }: IModalCreateTechnology) => {
-  const { addTechnology } = useContext(TechnologyContext);
+  const { handleAddToTechnology } = useContext(TechnologyContext);
 
   const token = localStorage.getItem("Kenzie Hub: token") ?? "";
 
@@ -43,7 +43,7 @@ const ModalCreateTechnology = ({ setModal }: IModalCreateTechnology) => {
       .then((res) => {
         setModal(false);
 
-        addTechnology(res.data);
+        handleAddToTechnology(res.data);
 
         toast.success("Tecnologia criada com sucesso!");
       })

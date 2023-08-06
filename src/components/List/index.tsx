@@ -1,15 +1,32 @@
 import { TechnologyContext } from "../../contexts/TechnologyContext";
 import { ModalCreateTechnology } from "../ModalCreateTechnology";
+import { useContext, useEffect, useState } from "react";
 import { ModalBackground } from "../ModalBackground";
-import { useContext, useState } from "react";
+import { ITechnologyProps } from "../../interfaces";
+import { Technology } from "../Technology";
+import api from "../../services/api";
 import { Container } from "./style";
 import { Button } from "../Button";
-import { Card } from "../Card";
 
 const List = () => {
-  const { technologies } = useContext(TechnologyContext);
+  const id = localStorage.getItem("Kenzie Hub: id");
+
+  const { handleAddToTechnology } = useContext(TechnologyContext);
 
   const [modal, setModal] = useState<boolean>(false);
+
+  const [technologies, setTechnologies] = useState<ITechnologyProps[]>([]);
+
+  useEffect(() => {
+    api
+      .get(`users/${id}`)
+      .then((res) => {
+        handleAddToTechnology(res.data.techs);
+
+        setTechnologies(res.data.techs);
+      })
+      .catch((error) => console.error("error", error));
+  }, [id]);
 
   return (
     <>
@@ -34,7 +51,7 @@ const List = () => {
 
         <menu>
           {technologies.map((technology) => (
-            <Card technology={technology} key={technology.id} />
+            <Technology technology={technology} key={technology.id} />
           ))}
         </menu>
       </Container>

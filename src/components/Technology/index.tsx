@@ -4,7 +4,7 @@ import { ITechnology } from "../../interfaces";
 import { Container } from "./style";
 import { useState } from "react";
 
-const Card = ({ technology }: ITechnology) => {
+const Technology = ({ technology }: ITechnology) => {
   const [modal, setModal] = useState<boolean>(false);
 
   return (
@@ -27,4 +27,4 @@ const Card = ({ technology }: ITechnology) => {
   );
 };
 
-export { Card };
+export { Technology };
