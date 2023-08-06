@@ -1,3 +1,4 @@
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { SubHeader } from "../../components/SubHeader";
 import { Header } from "../../components/Header";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +16,9 @@ const Dashboard = () => {
 
   return (
     <React.Fragment>
+      <HelmetProvider>
+        <Helmet title="Dashboard | Kenzie Hub" />
+      </HelmetProvider>
       <Header />
       <SubHeader />
       <List />

@@ -17,7 +17,7 @@ const Header = () => {
           onClick={() => {
             localStorage.clear();
 
-            return navigate("/");
+            return navigate("/signin");
           }}
         >
           Sair

@@ -1,8 +1,9 @@
 import { FormSignIn } from "../../components/Forms/FormSignIn";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import { Logo } from "../../components/Logo";
+import React, { useEffect } from "react";
 import { Container } from "./style";
-import { useEffect } from "react";
 
 const SignIn = () => {
   const token = localStorage.getItem("Kenzie Hub: token") ?? "";
@@ -14,11 +15,16 @@ const SignIn = () => {
   }, [token]);
 
   return (
-    <Container>
-      <Logo />
+    <React.Fragment>
+      <HelmetProvider>
+        <Helmet title="Entrar | Kenzie Hub" />
+      </HelmetProvider>
+      <Container>
+        <Logo />
 
-      <FormSignIn />
-    </Container>
+        <FormSignIn />
+      </Container>
+    </React.Fragment>
   );
 };
 
