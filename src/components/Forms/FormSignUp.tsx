@@ -2,6 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import { FormLayout } from "./form.layout";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import api from "../../services/api";
 import { Select } from "../Select";
 import { Button } from "../Button";
@@ -50,8 +51,20 @@ const FormSignUp = () => {
 
     api
       .post("/users", data)
-      .then(() => navigate("/signin"))
-      .catch((error) => console.error("error", error))
+      .then(() => {
+        toast.success("Conta criada com sucesso!");
+
+        navigate("/signin");
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          toast.error("Email já existente!");
+        } else {
+          toast.error("Ops! Algo deu errado");
+        }
+
+        console.error("error", error);
+      })
       .finally(() => setIsLoading(false));
   };
 

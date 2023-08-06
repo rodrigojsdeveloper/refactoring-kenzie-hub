@@ -3,6 +3,7 @@ import { IModalEditAndDeleteTechnology } from "../../interfaces";
 import { HeaderModal } from "../HeaderModal";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import api from "../../services/api";
 import { Container } from "./style";
 import { Select } from "../Select";
@@ -48,8 +49,14 @@ const ModalEditAndDeleteTechnology = ({
         );
 
         setTechnologies([...newListTechnologies, newTechnology]);
+
+        toast.success("Tecnologia alterada com sucesso!");
       })
-      .catch((error) => console.error("error", error))
+      .catch((error) => {
+        toast.error("Não foi possível alterar a tecnologia!");
+
+        console.error("error", error);
+      })
       .finally(() => setIsLoadingEdit(false));
   };
 
@@ -70,8 +77,14 @@ const ModalEditAndDeleteTechnology = ({
         );
 
         setTechnologies(newListTechnologies);
+
+        toast.success("Tecnologia excluída com sucesso!");
       })
-      .catch((error) => console.error("error", error))
+      .catch((error) => {
+        toast.error("Não foi possível excluir a tecnologia!");
+
+        console.error("error", error);
+      })
       .finally(() => setIsLoadingDelete(false));
   };
 

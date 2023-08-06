@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext, useState } from "react";
 import { HeaderModal } from "../HeaderModal";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import api from "../../services/api";
 import { Container } from "./style";
 import { Select } from "../Select";
@@ -43,8 +44,14 @@ const ModalCreateTechnology = ({ setModal }: IModalCreateTechnology) => {
         setModal(false);
 
         addTechnology(res.data);
+
+        toast.success("Tecnologia criada com sucesso!");
       })
-      .catch((error) => console.error("error", error))
+      .catch((error) => {
+        toast.error("Tecnologia já cadastrada!");
+
+        console.error("error", error);
+      })
       .finally(() => setIsLoading(false));
   };
 

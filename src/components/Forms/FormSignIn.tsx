@@ -1,11 +1,11 @@
-import { TechnologyContext } from "../../contexts/TechnologyContext";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
 import { FormLayout } from "./form.layout";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import api from "../../services/api";
 import { Button } from "../Button";
+import { useState } from "react";
 import { Input } from "../Input";
 import * as yup from "yup";
 
@@ -33,9 +33,15 @@ const FormSignIn = () => {
 
         localStorage.setItem("Kenzie Hub: id", res.data.user.id);
 
+        toast.success("Você fez login com sucesso!");
+
         return navigate("/dashboard");
       })
-      .catch((error) => console.error("error", error))
+      .catch((error) => {
+        toast.error("Erro ao entrar na conta, verifique seu email ou senha!");
+
+        console.error("error", error);
+      })
       .finally(() => setIsLoading(false));
   };
 
