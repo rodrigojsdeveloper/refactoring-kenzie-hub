@@ -1,4 +1,3 @@
-import { FieldValues, UseFormRegister } from "react-hook-form";
 import { Container } from "./style";
 
 interface InputProps {
