@@ -1,18 +1,26 @@
-import { UserContext } from "../../contexts/UserContext";
+import { useEffect, useState } from "react";
+import { IUser } from "../../interfaces";
+import api from "../../services/api";
 import { Container } from "./style";
-import { useContext } from "react";
 
 const SubHeader = () => {
-  const { user } = useContext(UserContext);
+  const id = localStorage.getItem("Kenzie Hub: id");
 
-  const { name, course_module } = user;
+  const [user, setUser] = useState<IUser>({} as IUser);
+
+  useEffect(() => {
+    api
+      .get(`users/${id}`)
+      .then((res) => setUser(res.data))
+      .catch((error) => console.error("error", error));
+  }, [id]);
 
   return (
     <Container height="subHeader">
       <div className="divSubHeader">
-        <h1>Olá, {name}</h1>
+        <h1>Olá, {user.name}</h1>
 
-        <p>{course_module}</p>
+        <p>{user.course_module}</p>
       </div>
     </Container>
   );
