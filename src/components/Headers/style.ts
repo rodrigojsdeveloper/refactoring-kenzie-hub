@@ -1,8 +1,5 @@
+import { IHeaderStyleProps } from "../../interfaces";
 import styled, { css } from "styled-components";
-
-interface IHeaderStyleProps {
-  height?: "subHeader";
-}
 
 const Container = styled.header<IHeaderStyleProps>`
   width: 100%;

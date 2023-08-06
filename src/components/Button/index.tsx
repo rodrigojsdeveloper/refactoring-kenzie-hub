@@ -1,13 +1,5 @@
+import { IButtonProps } from "../../interfaces";
 import { Container } from "./style";
-
-interface IButton {
-  children: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  disabled?: boolean;
-  type?: "button" | "submit" | "reset";
-  size: "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall";
-  color: "pink" | "gray" | "dark-grey";
-}
 
 const Button = ({
   children,
@@ -16,7 +8,7 @@ const Button = ({
   type,
   size,
   color,
-}: IButton) => {
+}: IButtonProps) => {
   return (
     <Container
       onClick={onClick}

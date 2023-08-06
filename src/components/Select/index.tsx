@@ -1,12 +1,5 @@
+import { ISelectProps } from "../../interfaces";
 import { Container } from "./style";
-
-interface ISelectProps {
-  label: string;
-  name: string;
-  register: any;
-  defaultValue?: string | number | readonly string[];
-  children: React.ReactNode;
-}
 
 const Select = ({ children, label, register, name }: ISelectProps) => {
   return (

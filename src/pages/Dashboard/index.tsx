@@ -1,6 +1,6 @@
+import { SubHeader } from "../../components/Headers/SubHeader";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { SubHeader } from "../../components/SubHeader";
-import { Header } from "../../components/Header";
+import { Header } from "../../components/Headers/Header";
 import { useNavigate } from "react-router-dom";
 import { List } from "../../components/List";
 import React, { useEffect } from "react";

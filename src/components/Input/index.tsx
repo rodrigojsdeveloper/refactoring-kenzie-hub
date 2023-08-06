@@ -1,15 +1,5 @@
+import { InputProps } from "../../interfaces";
 import { Container } from "./style";
-
-interface InputProps {
-  label: string;
-  placeholder: string;
-  type: React.HTMLInputTypeAttribute;
-  name: string;
-  register: any;
-  disabled?: boolean;
-  defaultValue?: string | number | readonly string[];
-  value?: string | number | readonly string[];
-}
 
 const Input = ({
   label,

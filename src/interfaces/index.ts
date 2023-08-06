@@ -1,3 +1,31 @@
+export interface IButtonProps {
+  children: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
+  size: "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall";
+  color: "pink" | "gray" | "dark-grey";
+}
+
+export interface InputProps {
+  label: string;
+  placeholder: string;
+  type: React.HTMLInputTypeAttribute;
+  name: string;
+  register: any;
+  disabled?: boolean;
+  defaultValue?: string | number | readonly string[];
+  value?: string | number | readonly string[];
+}
+
+export interface ISelectProps {
+  label: string;
+  name: string;
+  register: any;
+  defaultValue?: string | number | readonly string[];
+  children: React.ReactNode;
+}
+
 export interface IUser {
   id: string;
   name: string;
@@ -28,6 +56,10 @@ export interface IHeaderModal {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+export interface IHeaderStyleProps {
+  height?: "subHeader";
+}
+
 export interface IModalCreateTechnology {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -35,4 +67,9 @@ export interface IModalCreateTechnology {
 export interface IModalEditAndDeleteTechnology {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   currentTechnology: ITechnologyProps;
+}
+
+export interface IFormLayoutProps {
+  children: React.ReactNode;
+  onSubmit: React.FormEventHandler<HTMLFormElement>;
 }
