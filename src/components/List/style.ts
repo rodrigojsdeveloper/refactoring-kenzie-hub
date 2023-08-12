@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  max-width: 775px;
+  max-width: 798px;
   height: 469px;
 
   padding: 0 12px;
   margin: 0 auto 14.63px auto;
 
-  & > div {
+  & > .divTecnologies {
     width: 100%;
 
     display: flex;
@@ -34,6 +34,31 @@ const Container = styled.div`
 
     @media (max-width: 768px) {
       padding: 22px 8.5px;
+    }
+  }
+
+  & > .divEmpty {
+    height: 76px;
+    width: 100%;
+    max-width: 1440px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-start;
+
+    margin-top: 37px;
+
+    & > h3 {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    & > p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24.36px;
     }
   }
 `;

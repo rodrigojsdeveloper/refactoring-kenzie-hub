@@ -26,7 +26,7 @@ const List = () => {
         setTechnologies(res.data.techs);
       })
       .catch((error) => console.error("error", error));
-  }, [id]);
+  }, [technologies]);
 
   return (
     <>
@@ -37,7 +37,7 @@ const List = () => {
       )}
 
       <Container>
-        <div>
+        <div className="divTecnologies">
           <h2>Tecnologias</h2>
 
           <Button
@@ -49,11 +49,19 @@ const List = () => {
           </Button>
         </div>
 
-        <menu>
-          {technologies.map((technology) => (
-            <Technology technology={technology} key={technology.id} />
-          ))}
-        </menu>
+        {technologies.length > 0 ? (
+          <menu>
+            {technologies.map((technology) => (
+              <Technology technology={technology} key={technology.id} />
+            ))}
+          </menu>
+        ) : (
+          <div className="divEmpty">
+            <h3>Que pena! Você não tem tecnologias :(</h3>
+
+            <p>Crie novas tecnologias, elas apareceram aqui.</p>
+          </div>
+        )}
       </Container>
     </>
   );
