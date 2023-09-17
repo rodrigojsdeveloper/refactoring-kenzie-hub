@@ -6,8 +6,8 @@ const Container = styled.div`
   max-width: 369px;
   height: 340px;
 
-  border-radius: 4px;
   background-color: var(--grey-3);
+  border-radius: var(--border-radius);
 
   animation: ${animationForm} 1s;
 

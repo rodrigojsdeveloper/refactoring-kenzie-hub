@@ -8,8 +8,8 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  border-radius: 4px;
   background-color: var(--grey-4);
+  border-radius: var(--border-radius);
 
   margin-bottom: 14px;
   padding: 13px 22.22px;

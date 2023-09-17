@@ -8,8 +8,8 @@ const Container = styled.div`
   align-items: center;
 
   padding: 15px;
-  background: var(--grey-2);
-  border-radius: 4px 4px 0 0;
+  background-color: var(--grey-2);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 
   & > h2 {
     font-weight: 500;

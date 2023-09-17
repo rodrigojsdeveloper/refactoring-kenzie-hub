@@ -22,10 +22,10 @@ const Container = styled.div`
     width: 100%;
     height: 48px;
 
-    border-radius: 4px;
     color: var(--grey-0);
     border: 1px solid var(--grey-2);
     background-color: var(--grey-2);
+    border-radius: var(--border-radius);
 
     padding: 0 16px;
 

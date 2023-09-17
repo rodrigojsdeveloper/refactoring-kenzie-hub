@@ -34,18 +34,34 @@ export default createGlobalStyle`
 
     // Transparent
     --transparent: transparent;
+
+    // Border Radius
+    --border-radius: 4px
   }
 
   body {
-    background-color: var(--grey-4);
     color: var(--grey-0);
+    background-color: var(--grey-4);
   }
 
-  button, a {
+  button, a, select {
     cursor: pointer;
   }
 
   a {
     text-decoration: none;
+  }
+
+  ::-webkit-scrollbar {
+  width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--grey-4);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 0.5px;
+    background-color: var(--grey-2);
   }
 `;

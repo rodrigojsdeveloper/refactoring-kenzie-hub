@@ -14,7 +14,7 @@ const Container = styled.button<IButtonStyle>`
   color: var(--grey-0);
 
   transition: 0.4s;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 
   ${({ color }) => {
     switch (color) {

@@ -8,8 +8,8 @@ const Container = styled.form`
   flex-direction: column;
   align-items: center;
 
-  border-radius: 4px;
   background-color: var(--grey-3);
+  border-radius: var(--border-radius);
 
   padding: 42px 22.5px 28.19px 22.5px;
 

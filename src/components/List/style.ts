@@ -29,8 +29,8 @@ const Container = styled.div`
     height: 416px;
 
     padding: 23px 26px;
-    border-radius: 4px;
     background-color: var(--grey-3);
+    border-radius: var(--border-radius);
 
     @media (max-width: 768px) {
       padding: 22px 8.5px;
