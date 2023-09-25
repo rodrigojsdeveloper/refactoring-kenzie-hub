@@ -19,9 +19,9 @@ const Technology = ({ technology }: ITechnology) => {
       )}
 
       <Container onClick={() => setModal(true)}>
-        <p>{technology.title}</p>
+        <p className="title">{technology.title}</p>
 
-        <p>{technology.status}</p>
+        <p className="status">{technology.status}</p>
       </Container>
     </>
   );

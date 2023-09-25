@@ -7,6 +7,7 @@ import { Technology } from "../Technology";
 import api from "../../services/api";
 import { Container } from "./style";
 import { Button } from "../Button";
+import { Empty } from "../Empty";
 
 const List = () => {
   const id = localStorage.getItem("Kenzie Hub: id");
@@ -56,11 +57,7 @@ const List = () => {
             ))}
           </menu>
         ) : (
-          <div className="divEmpty">
-            <h3>Que pena! Você não tem tecnologias :(</h3>
-
-            <p>Crie novas tecnologias, elas apareceram aqui.</p>
-          </div>
+          <Empty />
         )}
       </Container>
     </>

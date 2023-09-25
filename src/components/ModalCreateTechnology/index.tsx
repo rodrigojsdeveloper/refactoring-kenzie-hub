@@ -67,10 +67,18 @@ const ModalCreateTechnology = ({ setModal }: IModalCreateTechnology) => {
           register={register}
           type="text"
         />
-        <Select label="Selecionar status" name="status" register={register}>
-          <option>Iniciante</option>
-          <option>Intermediário</option>
-          <option>Avançado</option>
+        <Select
+          label="Selecionar status"
+          register={register}
+          name="status"
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Selecione a Tecnologia
+          </option>
+          <option value="Iniciante">Iniciante</option>
+          <option value="Intermediário">Intermediário</option>
+          <option value="Avançado">Avançado</option>
         </Select>
 
         <Button type="submit" size="xxlarge" color="pink" disabled={isLoading}>

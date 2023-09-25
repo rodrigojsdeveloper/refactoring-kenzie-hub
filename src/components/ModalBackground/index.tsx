@@ -1,8 +1,7 @@
 import { IChildren } from "../../interfaces";
 import { Container } from "./style";
-import { FC } from "react";
 
-const ModalBackground: FC<IChildren> = ({ children }) => {
+const ModalBackground = ({ children }: IChildren) => {
   return <Container>{children}</Container>;
 };
 

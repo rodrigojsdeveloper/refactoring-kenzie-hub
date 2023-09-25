@@ -1,92 +1,36 @@
 import { TechnologyContext } from "../../contexts/TechnologyContext";
 import { IModalEditAndDeleteTechnology } from "../../interfaces";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { HeaderModal } from "../HeaderModal";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
-import api from "../../services/api";
 import { Container } from "./style";
 import { Select } from "../Select";
 import { Button } from "../Button";
 import { Input } from "../Input";
+import * as yup from "yup";
 
 const ModalEditAndDeleteTechnology = ({
   setModal,
   currentTechnology,
 }: IModalEditAndDeleteTechnology) => {
-  const { technologies, setTechnologies } = useContext(TechnologyContext);
-
-  const token = localStorage.getItem("Kenzie Hub: token") ?? "";
+  const { handleEditTecnology, handleDeleteTechnology } =
+    useContext(TechnologyContext);
 
   const [isLoadingEdit, setIsLoadingEdit] = useState(false);
 
   const [isLoadingDelete, setIsLoadingDelete] = useState(false);
 
-  const { register, handleSubmit } = useForm();
+  const schema = yup.object().shape({
+    status: yup.string().required(),
+  });
 
-  const onSubmitFunction = (data: any) => {
-    setIsLoadingEdit(true);
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-    const { status } = data;
-
-    api
-      .put(
-        `/users/techs/${currentTechnology.id}`,
-        { status },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then((_) => {
-        setModal(false);
-
-        const newTechnology = { ...currentTechnology, status };
-
-        const newListTechnologies = technologies.filter(
-          (technology) => technology.id !== currentTechnology.id
-        );
-
-        setTechnologies([...newListTechnologies, newTechnology]);
-
-        toast.success("Tecnologia alterada com sucesso!");
-      })
-      .catch((error) => {
-        toast.error("Não foi possível alterar a tecnologia!");
-
-        console.error("error", error);
-      })
-      .finally(() => setIsLoadingEdit(false));
-  };
-
-  const deleteTechnology = () => {
-    setIsLoadingDelete(true);
-
-    api
-      .delete(`/users/techs/${currentTechnology.id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((_) => {
-        setModal(false);
-
-        const newListTechnologies = technologies.filter(
-          (technology) => technology.id !== currentTechnology.id
-        );
-
-        setTechnologies(newListTechnologies);
-
-        toast.success("Tecnologia excluída com sucesso!");
-      })
-      .catch((error) => {
-        toast.error("Não foi possível excluir a tecnologia!");
-
-        console.error("error", error);
-      })
-      .finally(() => setIsLoadingDelete(false));
-  };
+  const onSubmitFunction = (data: any) =>
+    handleEditTecnology(setIsLoadingEdit, data, currentTechnology, setModal);
 
   return (
     <Container>
@@ -103,10 +47,18 @@ const ModalEditAndDeleteTechnology = ({
           name="title"
         />
 
-        <Select label="Selecionar status" register={register} name="status">
-          <option>Iniciante</option>
-          <option>Intermediário</option>
-          <option>Avançado</option>
+        <Select
+          label="Selecionar status"
+          register={register}
+          name="status"
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Selecione a Tecnologia
+          </option>
+          <option value="Iniciante">Iniciante</option>
+          <option value="Intermediário">Intermediário</option>
+          <option value="Avançado">Avançado</option>
         </Select>
 
         <div className="divButtons">
@@ -119,7 +71,13 @@ const ModalEditAndDeleteTechnology = ({
             {isLoadingEdit ? "Alterando..." : "Salvar alterações"}
           </Button>
           <Button
-            onClick={deleteTechnology}
+            onClick={() =>
+              handleDeleteTechnology(
+                setIsLoadingDelete,
+                currentTechnology,
+                setModal
+              )
+            }
             size="large"
             color="gray"
             disabled={isLoadingDelete}

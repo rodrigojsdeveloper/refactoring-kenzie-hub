@@ -19,16 +19,16 @@ const Container = styled.div`
   &:hover {
     background-color: var(--grey-2);
 
-    & > p:nth-child(2) {
+    & > .status {
       color: var(--grey-0);
     }
   }
 
-  & > p:nth-child(1) {
+  & > .title {
     font-weight: 600;
   }
 
-  & > p:nth-child(2) {
+  & > .status {
     font-weight: 400;
     font-size: 12.18px;
     line-height: 22.33px;

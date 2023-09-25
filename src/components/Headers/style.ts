@@ -47,8 +47,8 @@ const Container = styled.header<IHeaderStyleProps>`
     }
   }
 
-  .divSubHeader {
-    @media (max-width: 768px) {
+  @media (max-width: 425px) {
+    .divSubHeader {
       height: 60px;
 
       flex-direction: column;

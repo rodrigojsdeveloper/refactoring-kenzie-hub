@@ -7,6 +7,11 @@ export interface IButtonProps {
   color: "pink" | "gray" | "dark-grey";
 }
 
+export interface IButtonStyle {
+  size: "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall";
+  color: "pink" | "gray" | "dark-grey";
+}
+
 export interface InputProps {
   label: string;
   placeholder: string;
@@ -72,4 +77,21 @@ export interface IModalEditAndDeleteTechnology {
 export interface IFormLayoutProps {
   children: React.ReactNode;
   onSubmit: React.FormEventHandler<HTMLFormElement>;
+}
+
+export interface ITechnologyContextData {
+  technologies: ITechnologyProps[];
+  setTechnologies: React.Dispatch<React.SetStateAction<ITechnologyProps[]>>;
+  handleAddToTechnology: (technology: ITechnologyProps) => void;
+  handleEditTecnology: (
+    setIsLoadingEdit: React.Dispatch<React.SetStateAction<boolean>>,
+    data: any,
+    currentTechnology: ITechnologyProps,
+    setModal: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
+  handleDeleteTechnology: (
+    setIsLoadingDelete: React.Dispatch<React.SetStateAction<boolean>>,
+    currentTechnology: ITechnologyProps,
+    setModal: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
 }

@@ -2,10 +2,10 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   * {
+    border: 0;
     margin: 0;
     padding: 0;
     outline: 0;
-    border: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
@@ -36,7 +36,7 @@ export default createGlobalStyle`
     --transparent: transparent;
 
     // Border Radius
-    --border-radius: 4px
+    --border-radius: 4px;
   }
 
   body {
@@ -53,7 +53,7 @@ export default createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {

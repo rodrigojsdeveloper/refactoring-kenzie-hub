@@ -45,6 +45,7 @@ const Container = styled.div`
 
     &:focus {
       border: 1px solid var(--grey-0);
+      background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 15.873L12 7.873L20 15.873H4Z" fill="%23868E96"/></svg>');
     }
 
     &:focus::placeholder {

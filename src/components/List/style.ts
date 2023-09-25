@@ -32,33 +32,14 @@ const Container = styled.div`
     background-color: var(--grey-3);
     border-radius: var(--border-radius);
 
-    @media (max-width: 768px) {
-      padding: 22px 8.5px;
-    }
-  }
+    overflow-y: auto;
 
-  & > .divEmpty {
-    height: 76px;
-    width: 100%;
-    max-width: 1440px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-self: flex-start;
-
-    margin-top: 37px;
-
-    & > h3 {
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 28px;
+    &::-webkit-scrollbar-track {
+      background-color: var(--grey-3);
     }
 
-    & > p {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 24.36px;
+    @media (max-width: 425px) {
+      padding: 15px 10px;
     }
   }
 `;

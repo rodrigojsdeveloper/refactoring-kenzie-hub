@@ -1,12 +1,20 @@
 import { ISelectProps } from "../../interfaces";
 import { Container } from "./style";
 
-const Select = ({ children, label, register, name }: ISelectProps) => {
+const Select = ({
+  children,
+  label,
+  register,
+  name,
+  defaultValue,
+}: ISelectProps) => {
   return (
     <Container>
       <label>{label}</label>
 
-      <select {...register(name)}>{children}</select>
+      <select {...register(name)} defaultValue={defaultValue}>
+        {children}
+      </select>
     </Container>
   );
 };

@@ -1,9 +1,5 @@
 import styled, { css } from "styled-components";
-
-interface IButtonStyle {
-  size: "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall";
-  color: "pink" | "gray" | "dark-grey";
-}
+import { IButtonStyle } from "../../interfaces";
 
 const Container = styled.button<IButtonStyle>`
   width: 100%;

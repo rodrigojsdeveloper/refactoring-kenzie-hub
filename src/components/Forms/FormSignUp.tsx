@@ -120,11 +120,15 @@ const FormSignUp = () => {
         label="Selecionar módulo"
         name="course_module"
         register={register}
+        defaultValue=""
       >
-        <option>Primeiro módulo</option>
-        <option>Segundo módulo</option>
-        <option>Terceiro módulo</option>
-        <option>Quarto módulo</option>
+        <option value="" disabled>
+          Selecione o módulo
+        </option>
+        <option value="Primeiro módulo">Primeiro módulo</option>
+        <option value="Segundo módulo">Segundo módulo</option>
+        <option value="Terceiro módulo">Terceiro módulo</option>
+        <option value="Quarto módulo">Quarto módulo</option>
       </Select>
 
       <Button type="submit" color="pink" size="xxlarge" disabled={isLoading}>
