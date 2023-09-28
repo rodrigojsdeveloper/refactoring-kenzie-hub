@@ -1,4 +1,4 @@
-import { ModalEditAndDeleteTechnology } from "../ModalEditAndDeleteTechnology";
+import { ModalEditAndDeleteTechnology } from "../Modals/EditAndDelete";
 import { ModalBackground } from "../ModalBackground";
 import { ITechnology } from "../../interfaces";
 import { Container } from "./style";

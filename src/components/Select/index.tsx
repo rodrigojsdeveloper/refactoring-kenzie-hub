@@ -12,7 +12,7 @@ const Select = ({
     <Container>
       <label>{label}</label>
 
-      <select {...register(name)} defaultValue={defaultValue}>
+      <select {...register(name)} defaultValue={defaultValue} required={true}>
         {children}
       </select>
     </Container>

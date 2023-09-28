@@ -1,5 +1,5 @@
 import { TechnologyContext } from "../../contexts/TechnologyContext";
-import { ModalCreateTechnology } from "../ModalCreateTechnology";
+import { ModalCreateTechnology } from "../Modals/Create";
 import { useContext, useEffect, useState } from "react";
 import { ModalBackground } from "../ModalBackground";
 import { ITechnologyProps } from "../../interfaces";
@@ -43,7 +43,7 @@ const List = () => {
 
           <Button
             color="dark-grey"
-            size="xsmall"
+            size="32.49px"
             onClick={() => setModal(true)}
           >
             +

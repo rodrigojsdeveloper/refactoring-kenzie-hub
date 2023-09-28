@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  max-width: 329.93px;
   height: 75px;
 
   display: flex;
@@ -58,7 +57,9 @@ const Container = styled.div`
     }
 
     @media (max-width: 768px) {
-      font-size: 12.99px;
+      padding: 8.19px 12.99px;
+
+      font-size: 14px;
       line-height: 21.1px;
     }
   }

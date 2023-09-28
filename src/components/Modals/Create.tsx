@@ -81,7 +81,7 @@ const ModalCreateTechnology = ({ setModal }: IModalCreateTechnology) => {
           <option value="Avançado">Avançado</option>
         </Select>
 
-        <Button type="submit" size="xxlarge" color="pink" disabled={isLoading}>
+        <Button type="submit" color="pink" disabled={isLoading}>
           {isLoading ? "Cadastrando..." : "Cadastrar Tecnologia"}
         </Button>
       </form>

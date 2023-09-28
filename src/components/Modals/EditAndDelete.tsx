@@ -64,7 +64,7 @@ const ModalEditAndDeleteTechnology = ({
         <div className="divButtons">
           <Button
             type="submit"
-            size="xlarge"
+            size="204px"
             color="pink"
             disabled={isLoadingEdit}
           >
@@ -78,7 +78,7 @@ const ModalEditAndDeleteTechnology = ({
                 setModal
               )
             }
-            size="large"
+            size="98px"
             color="gray"
             disabled={isLoadingDelete}
           >

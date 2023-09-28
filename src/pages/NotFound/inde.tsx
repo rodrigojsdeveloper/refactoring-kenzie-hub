@@ -24,7 +24,7 @@ const NotFound = () => {
           </p>
 
           <Button
-            size="xlarge"
+            size="204px"
             color="pink"
             onClick={() => (token ? navigate("/dashboard") : navigate("/"))}
           >

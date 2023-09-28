@@ -18,7 +18,11 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
 
-    padding: 20px 10px;
+    padding: 22px 22.5px;
+
+    @media (max-width: 768px) {
+      padding: 22px 17.99px;
+    }
   }
 
   .divButtons {
@@ -34,7 +38,7 @@ const Container = styled.div`
   }
 
   @media (max-width: 425px) {
-    height: 395px;
+    height: fit-content;
 
     .divButtons {
       flex-direction: column;

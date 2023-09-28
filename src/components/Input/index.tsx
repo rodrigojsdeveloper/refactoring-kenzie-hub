@@ -23,6 +23,7 @@ const Input = ({
         placeholder={placeholder}
         defaultValue={defaultValue}
         value={value}
+        required={true}
       />
     </Container>
   );

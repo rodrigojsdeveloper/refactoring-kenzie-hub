@@ -27,8 +27,8 @@ const SignUp = () => {
 
             <Button
               color="dark-grey"
-              size="medium"
-              onClick={() => navigate("/signin")}
+              size="67.49px"
+              onClick={() => navigate("/")}
             >
               Voltar
             </Button>

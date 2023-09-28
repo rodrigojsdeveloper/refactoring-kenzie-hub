@@ -18,6 +18,7 @@ const Container = styled.div`
 
   &:hover {
     background-color: var(--grey-2);
+    transition: background 0.5s ease 0s;
 
     & > .status {
       color: var(--grey-0);

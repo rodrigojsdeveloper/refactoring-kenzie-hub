@@ -8,8 +8,8 @@ const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/signin" element={<SignIn />} />
-      <Route path="/" element={<SignUp />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/" element={<SignIn />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

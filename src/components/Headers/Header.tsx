@@ -13,11 +13,11 @@ const Header = () => {
 
         <Button
           color="dark-grey"
-          size="small"
+          size="55.49px"
           onClick={() => {
             localStorage.clear();
 
-            return navigate("/signin");
+            return navigate("/");
           }}
         >
           Sair

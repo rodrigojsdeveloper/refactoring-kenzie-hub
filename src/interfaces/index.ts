@@ -3,12 +3,12 @@ export interface IButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
-  size: "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall";
+  size?: "204px" | "98px" | "67.49px" | "55.49px" | "32.49px";
   color: "pink" | "gray" | "dark-grey";
 }
 
 export interface IButtonStyle {
-  size: "xxlarge" | "xlarge" | "large" | "medium" | "small" | "xsmall";
+  size?: "204px" | "98px" | "67.49px" | "55.49px" | "32.49px";
   color: "pink" | "gray" | "dark-grey";
 }
 

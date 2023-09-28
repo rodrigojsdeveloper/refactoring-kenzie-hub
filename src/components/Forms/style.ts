@@ -52,7 +52,7 @@ const Container = styled.form`
   }
 
   @media (max-width: 768px) {
-    padding: 34px 17.99px;
+    padding: 33.58px 17.99px 19.96px 17.99px;
   }
 `;
 

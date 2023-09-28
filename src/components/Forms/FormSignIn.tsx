@@ -65,13 +65,13 @@ const FormSignIn = () => {
       />
 
       <div className="divButtons">
-        <Button type="submit" color="pink" size="xxlarge" disabled={isLoading}>
+        <Button type="submit" color="pink" disabled={isLoading}>
           {isLoading ? "Entrando..." : "Entrar"}
         </Button>
 
         <p>Ainda não possui uma conta?</p>
 
-        <Button color="gray" size="xxlarge" onClick={() => navigate("/")}>
+        <Button color="gray" onClick={() => navigate("/signup")}>
           Cadastre-se
         </Button>
       </div>

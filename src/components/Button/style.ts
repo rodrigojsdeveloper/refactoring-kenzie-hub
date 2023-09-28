@@ -3,6 +3,7 @@ import { IButtonStyle } from "../../interfaces";
 
 const Container = styled.button<IButtonStyle>`
   width: 100%;
+  height: 48px;
 
   font-weight: 500;
   font-size: 16px;
@@ -12,6 +13,10 @@ const Container = styled.button<IButtonStyle>`
   transition: 0.4s;
   border-radius: var(--border-radius);
 
+  &:disabled {
+    cursor: not-allowed;
+  }
+
   ${({ color }) => {
     switch (color) {
       case "pink":
@@ -19,6 +24,11 @@ const Container = styled.button<IButtonStyle>`
           background-color: var(--color-primary);
 
           &:hover {
+            background-color: var(--color-primary-focus);
+          }
+
+          &:active,
+          &:disabled {
             background-color: var(--color-primary-negative);
           }
         `;
@@ -28,6 +38,10 @@ const Container = styled.button<IButtonStyle>`
           background-color: var(--grey-1);
 
           &:hover {
+            background-color: var(--grey-hover);
+          }
+
+          &:active {
             background-color: var(--grey-2);
           }
         `;
@@ -44,37 +58,31 @@ const Container = styled.button<IButtonStyle>`
 
   ${({ size }) => {
     switch (size) {
-      case "xxlarge":
-        return css`
-          max-width: 326px;
-          height: 48px;
-        `;
-
-      case "xlarge":
+      case "204px":
         return css`
           max-width: 204px;
           height: 48px;
         `;
 
-      case "large":
+      case "98px":
         return css`
           max-width: 98px;
           height: 48px;
         `;
 
-      case "medium":
+      case "67.49px":
         return css`
           max-width: 67.49px;
           height: 40.11px;
 
+          font-size: 14px;
+
           @media (max-width: 768px) {
-            font-weight: 600;
-            font-size: 12px;
-            line-height: 28.42px;
+            max-width: 79.54px;
           }
         `;
 
-      case "small":
+      case "55.49px":
         return css`
           max-width: 55.49px;
           height: 32px;
@@ -84,7 +92,7 @@ const Container = styled.button<IButtonStyle>`
           line-height: 28.42px;
         `;
 
-      case "xsmall":
+      case "32.49px":
         return css`
           max-width: 32.49px;
           height: 32px;
@@ -94,6 +102,11 @@ const Container = styled.button<IButtonStyle>`
         return false;
     }
   }}
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: 21.1px;
+  }
 `;
 
 export { Container };

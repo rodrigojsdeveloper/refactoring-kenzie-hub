@@ -13,7 +13,7 @@ export default createGlobalStyle`
 
   :root {
     // Primary Palette
-    --color-primary: #ff577f;
+    --color-primary: #FF577F;
     --color-primary-focus: #FF427F;
     --color-primary-negative: #59323F;
 
@@ -23,6 +23,8 @@ export default createGlobalStyle`
     --grey-2: #343B41;
     --grey-3: #212529;
     --grey-4: #121214;
+
+    --grey-hover: #646C75;
 
     // Feedback Palette
     --sucess: #3FE864;
@@ -36,7 +38,7 @@ export default createGlobalStyle`
     --transparent: transparent;
 
     // Border Radius
-    --border-radius: 4px;
+    --border-radius: 2px;
   }
 
   body {

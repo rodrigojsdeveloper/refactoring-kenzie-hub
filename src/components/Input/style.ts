@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  max-width: 329.93px;
   height: 75px;
 
   display: flex;
@@ -27,7 +26,7 @@ const Container = styled.div`
     background-color: var(--grey-2);
     border-radius: var(--border-radius);
 
-    padding: 0 16px;
+    padding: 10.5px 16.24px;
 
     font-weight: 400;
     font-size: 16.24px;
@@ -42,7 +41,7 @@ const Container = styled.div`
     }
 
     &:focus::placeholder {
-      color: transparent;
+      color: var(--transparent);
     }
 
     &:disabled {
@@ -51,9 +50,9 @@ const Container = styled.div`
     }
 
     @media (max-width: 768px) {
-      padding: 0 12.99px;
+      padding: 8.19px 12.99px;
 
-      font-size: 12.99px;
+      font-size: 14px;
       line-height: 21.1px;
     }
   }

@@ -54,7 +54,7 @@ const FormSignUp = () => {
       .then(() => {
         toast.success("Conta criada com sucesso!");
 
-        navigate("/signin");
+        navigate("/");
       })
       .catch((error) => {
         if (error.response.status === 401) {
@@ -129,9 +129,11 @@ const FormSignUp = () => {
         <option value="Segundo módulo">Segundo módulo</option>
         <option value="Terceiro módulo">Terceiro módulo</option>
         <option value="Quarto módulo">Quarto módulo</option>
+        <option value="Quinto módulo">Quinto módulo</option>
+        <option value="Sexto módulo">Sexto módulo</option>
       </Select>
 
-      <Button type="submit" color="pink" size="xxlarge" disabled={isLoading}>
+      <Button type="submit" color="pink" disabled={isLoading}>
         {isLoading ? "Cadastrando..." : "Cadastrar"}
       </Button>
     </FormLayout>
