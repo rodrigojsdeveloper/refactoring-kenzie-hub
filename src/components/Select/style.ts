@@ -53,7 +53,6 @@ const Container = styled.div`
 
     &:disabled {
       opacity: 0.5;
-      cursor: not-allowed;
     }
 
     @media (max-width: 768px) {

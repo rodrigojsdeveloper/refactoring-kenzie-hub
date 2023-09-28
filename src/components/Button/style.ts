@@ -13,10 +13,6 @@ const Container = styled.button<IButtonStyle>`
   transition: 0.4s;
   border-radius: var(--border-radius);
 
-  &:disabled {
-    cursor: not-allowed;
-  }
-
   ${({ color }) => {
     switch (color) {
       case "pink":
@@ -41,7 +37,8 @@ const Container = styled.button<IButtonStyle>`
             background-color: var(--grey-hover);
           }
 
-          &:active {
+          &:active,
+          &:disabled {
             background-color: var(--grey-2);
           }
         `;
@@ -87,9 +84,7 @@ const Container = styled.button<IButtonStyle>`
           max-width: 55.49px;
           height: 32px;
 
-          font-weight: 600;
-          font-size: 12px;
-          line-height: 28.42px;
+          font-size: 14px;
         `;
 
       case "32.49px":
