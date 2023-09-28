@@ -2,41 +2,30 @@ import { TechnologyContext } from "../../contexts/TechnologyContext";
 import { ModalCreateTechnology } from "../Modals/Create";
 import { useContext, useEffect, useState } from "react";
 import { ModalBackground } from "../ModalBackground";
-import { ITechnologyProps } from "../../interfaces";
 import { Technology } from "../Technology";
-import api from "../../services/api";
+import { Loading } from "../Loading";
 import { Container } from "./style";
 import { Button } from "../Button";
 import { Empty } from "../Empty";
 
 const List = () => {
-  const id = localStorage.getItem("Kenzie Hub: id");
-
-  const { handleAddToTechnology } = useContext(TechnologyContext);
+  const { technologies, fetchTechnologies } = useContext(TechnologyContext);
 
   const [modal, setModal] = useState<boolean>(false);
 
-  const [technologies, setTechnologies] = useState<ITechnologyProps[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    api
-      .get(`users/${id}`)
-      .then((res) => {
-        handleAddToTechnology(res.data.techs);
-
-        setTechnologies(res.data.techs);
-      })
-      .catch((error) => console.error("error", error));
-  }, [technologies]);
+    fetchTechnologies(setLoading);
+  }, []);
 
   return (
     <>
-      {modal && (
+      {modal ? (
         <ModalBackground>
           <ModalCreateTechnology setModal={setModal} />
         </ModalBackground>
-      )}
-
+      ) : null}
       <Container>
         <div className="divTecnologies">
           <h2>Tecnologias</h2>
@@ -50,7 +39,9 @@ const List = () => {
           </Button>
         </div>
 
-        {technologies.length > 0 ? (
+        {loading ? (
+          <Loading />
+        ) : technologies.length > 0 ? (
           <menu>
             {technologies.map((technology) => (
               <Technology technology={technology} key={technology.id} />

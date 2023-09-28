@@ -36,6 +36,7 @@ const Container = styled.div`
 
     &::-webkit-scrollbar-track {
       background-color: var(--grey-3);
+      border-radius: var(--border-radius);
     }
 
     @media (max-width: 425px) {

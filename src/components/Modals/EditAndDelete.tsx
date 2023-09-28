@@ -1,5 +1,4 @@
 import { TechnologyContext } from "../../contexts/TechnologyContext";
-import { IModalEditAndDeleteTechnology } from "../../interfaces";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { HeaderModal } from "../HeaderModal";
 import { useContext, useState } from "react";
@@ -9,6 +8,10 @@ import { Select } from "../Select";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import * as yup from "yup";
+import {
+  IModalEditAndDeleteTechnology,
+  ITechnologyProps,
+} from "../../interfaces";
 
 const ModalEditAndDeleteTechnology = ({
   setModal,
@@ -29,7 +32,7 @@ const ModalEditAndDeleteTechnology = ({
     resolver: yupResolver(schema),
   });
 
-  const onSubmitFunction = (data: any) =>
+  const onSubmitFunction = (data: Partial<ITechnologyProps>) =>
     handleEditTecnology(setIsLoadingEdit, data, currentTechnology, setModal);
 
   return (

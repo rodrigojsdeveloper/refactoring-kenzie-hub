@@ -1,11 +1,9 @@
+import { IModalCreateTechnology, ITechnologyProps } from "../../interfaces";
 import { TechnologyContext } from "../../contexts/TechnologyContext";
-import { IModalCreateTechnology } from "../../interfaces";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext, useState } from "react";
 import { HeaderModal } from "../HeaderModal";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
-import api from "../../services/api";
 import { Container } from "./style";
 import { Select } from "../Select";
 import { Button } from "../Button";
@@ -13,9 +11,7 @@ import { Input } from "../Input";
 import * as yup from "yup";
 
 const ModalCreateTechnology = ({ setModal }: IModalCreateTechnology) => {
-  const { handleAddToTechnology } = useContext(TechnologyContext);
-
-  const token = localStorage.getItem("Kenzie Hub: token") ?? "";
+  const { handlePostTechnologies } = useContext(TechnologyContext);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,29 +27,8 @@ const ModalCreateTechnology = ({ setModal }: IModalCreateTechnology) => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmitFunction = (data: any) => {
-    setIsLoading(true);
-
-    api
-      .post("/users/techs", data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        setModal(false);
-
-        handleAddToTechnology(res.data);
-
-        toast.success("Tecnologia criada com sucesso!");
-      })
-      .catch((error) => {
-        toast.error("Tecnologia já cadastrada!");
-
-        console.error("error", error);
-      })
-      .finally(() => setIsLoading(false));
-  };
+  const onSubmitFunction = (data: Partial<ITechnologyProps>) =>
+    handlePostTechnologies(setIsLoading, setModal, data);
 
   return (
     <Container>

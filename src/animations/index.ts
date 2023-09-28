@@ -18,4 +18,13 @@ const animateLoading = keyframes`
   }
 `;
 
-export { animationForm, animateLoading };
+const ldsRingAnimation = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+export { animationForm, animateLoading, ldsRingAnimation };

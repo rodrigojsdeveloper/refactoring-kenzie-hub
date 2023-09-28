@@ -10,12 +10,56 @@ import {
 const TechnologyContext = createContext({} as ITechnologyContextData);
 
 const TechnologyContextProvider = ({ children }: IChildren) => {
-  const token = localStorage.getItem("Kenzie Hub: token") ?? "";
+  const id = localStorage.getItem("Kenzie Hub: id");
+
+  const token = localStorage.getItem("Kenzie Hub: token");
 
   const [technologies, setTechnologies] = useState<ITechnologyProps[]>([]);
 
   const handleAddToTechnology = (technology: ITechnologyProps) =>
     setTechnologies([...technologies, technology]);
+
+  const fetchTechnologies = (
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
+    api
+      .get(`users/${id}`)
+      .then((res) => {
+        handleAddToTechnology(res.data.techs);
+
+        setTechnologies(res.data.techs);
+      })
+      .catch((error) => console.error("error", error))
+      .finally(() => setLoading(false));
+  };
+
+  const handlePostTechnologies = (
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
+    setModal: React.Dispatch<React.SetStateAction<boolean>>,
+    data: Partial<ITechnologyProps>
+  ) => {
+    setIsLoading(true);
+
+    api
+      .post("/users/techs", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setModal(false);
+
+        handleAddToTechnology(res.data);
+
+        toast.success("Tecnologia criada com sucesso!");
+      })
+      .catch((error) => {
+        toast.error("Tecnologia já cadastrada!");
+
+        console.error("error", error);
+      })
+      .finally(() => setIsLoading(false));
+  };
 
   const handleEditTecnology = (
     setIsLoadingEdit: React.Dispatch<React.SetStateAction<boolean>>,
@@ -95,7 +139,9 @@ const TechnologyContextProvider = ({ children }: IChildren) => {
       value={{
         technologies,
         setTechnologies,
+        fetchTechnologies,
         handleAddToTechnology,
+        handlePostTechnologies,
         handleEditTecnology,
         handleDeleteTechnology,
       }}

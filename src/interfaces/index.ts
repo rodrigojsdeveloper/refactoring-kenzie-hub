@@ -82,7 +82,15 @@ export interface IFormLayoutProps {
 export interface ITechnologyContextData {
   technologies: ITechnologyProps[];
   setTechnologies: React.Dispatch<React.SetStateAction<ITechnologyProps[]>>;
+  fetchTechnologies: (
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
   handleAddToTechnology: (technology: ITechnologyProps) => void;
+  handlePostTechnologies: (
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
+    setModal: React.Dispatch<React.SetStateAction<boolean>>,
+    data: Partial<ITechnologyProps>
+  ) => void;
   handleEditTecnology: (
     setIsLoadingEdit: React.Dispatch<React.SetStateAction<boolean>>,
     data: any,
