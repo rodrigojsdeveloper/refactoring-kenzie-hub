@@ -18,7 +18,7 @@ Este projeto utiliza o Yarn como gerenciador de pacotes. Certifique-se de tê-lo
 
 ### Aviso:
 
-Embora o Yarn seja o gerenciador de pacotes recomendado para este projeto, você também pode usar o NPM executando os seguintes comandos em vez dos comandos de Yarn mencionados acima:
+Embora o Yarn seja o gerenciador de pacotes recomendado, você também pode usar o NPM executando os seguintes comandos:
 
 - Para instalar as dependências: npm install
 - Para iniciar o Kenzie Hub: npm run dev
@@ -33,7 +33,7 @@ yarn
 
 ## Iniciando o Kenzie Hub
 
-Para iniciar o Kenzie Hub, execute o seguinte comando no terminal, a partir da raiz do projeto:
+Para iniciar o projeto, execute o seguinte comando no terminal:
 
 ```
 yarn dev
