@@ -55,6 +55,8 @@ const ModalEditAndDeleteTechnology = ({
           register={register}
           name="status"
           defaultValue=""
+          htmlFor="status"
+          id="status"
         >
           <option value="" disabled>
             Selecione a Tecnologia

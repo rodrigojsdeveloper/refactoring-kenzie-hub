@@ -7,12 +7,19 @@ const Select = ({
   register,
   name,
   defaultValue,
+  htmlFor,
+  id,
 }: ISelectProps) => {
   return (
     <Container>
-      <label>{label}</label>
+      <label htmlFor={htmlFor}>{label}</label>
 
-      <select {...register(name)} defaultValue={defaultValue} required={true}>
+      <select
+        id={id}
+        defaultValue={defaultValue}
+        required={true}
+        {...register(name)}
+      >
         {children}
       </select>
     </Container>

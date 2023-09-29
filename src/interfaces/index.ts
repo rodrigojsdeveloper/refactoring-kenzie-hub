@@ -29,6 +29,8 @@ export interface ISelectProps {
   register: any;
   defaultValue?: string | number | readonly string[];
   children: React.ReactNode;
+  htmlFor: string;
+  id: string;
 }
 
 export interface IUser {

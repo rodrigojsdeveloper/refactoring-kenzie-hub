@@ -121,6 +121,8 @@ const FormSignUp = () => {
         name="course_module"
         register={register}
         defaultValue=""
+        htmlFor="module"
+        id="module"
       >
         <option value="" disabled>
           Selecione o módulo

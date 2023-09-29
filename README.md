@@ -3,6 +3,7 @@
 
 <p>O Kenzie Hub é uma aplicação de gerenciamento de competências.</p>
 </div>
+<br />
 
 ## Instalação das Dependências
 
