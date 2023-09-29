@@ -1,5 +1,5 @@
-import { IModalCreateTechnology, ITechnologyProps } from "../../interfaces";
-import { TechnologyContext } from "../../contexts/TechnologyContext";
+import { TechnologyContext } from "../../contexts/technology.context";
+import { IModal, ITechnologyProps } from "../../interfaces";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext, useState } from "react";
 import { HeaderModal } from "../HeaderModal";
@@ -10,7 +10,7 @@ import { Button } from "../Button";
 import { Input } from "../Input";
 import * as yup from "yup";
 
-const ModalCreateTechnology = ({ setModal }: IModalCreateTechnology) => {
+const ModalCreateTechnology = ({ setModal }: IModal) => {
   const { handlePostTechnologies } = useContext(TechnologyContext);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);

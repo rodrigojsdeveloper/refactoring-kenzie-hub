@@ -1,4 +1,4 @@
-import { TechnologyContext } from "../../contexts/TechnologyContext";
+import { TechnologyContext } from "../../contexts/technology.context";
 import { ModalCreateTechnology } from "../Modals/Create";
 import { useContext, useEffect, useState } from "react";
 import { ModalBackground } from "../ModalBackground";

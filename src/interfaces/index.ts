@@ -58,26 +58,23 @@ export interface IChildren {
   children: React.ReactNode;
 }
 
-export interface IHeaderModal {
-  title: string;
+export interface IModal {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface IHeaderStyleProps {
+export interface IHeaderModal extends IModal {
+  title: string;
+}
+
+export interface IHeaderStyle {
   height?: "subHeader";
 }
 
-export interface IModalCreateTechnology {
-  setModal: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export interface IModalEditAndDeleteTechnology {
-  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+export interface IModalEditAndDeleteTechnology extends IModal {
   currentTechnology: ITechnologyProps;
 }
 
-export interface IFormLayoutProps {
-  children: React.ReactNode;
+export interface IFormLayoutProps extends IChildren {
   onSubmit: React.FormEventHandler<HTMLFormElement>;
 }
 

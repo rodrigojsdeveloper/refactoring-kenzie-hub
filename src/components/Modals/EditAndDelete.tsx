@@ -1,4 +1,4 @@
-import { TechnologyContext } from "../../contexts/TechnologyContext";
+import { TechnologyContext } from "../../contexts/technology.context";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { HeaderModal } from "../HeaderModal";
 import { useContext, useState } from "react";

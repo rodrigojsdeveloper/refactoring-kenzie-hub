@@ -1,7 +1,7 @@
-import { IHeaderStyleProps } from "../../interfaces";
+import { IHeaderStyle } from "../../interfaces";
 import styled, { css } from "styled-components";
 
-const Container = styled.header<IHeaderStyleProps>`
+const Container = styled.header<IHeaderStyle>`
   width: 100%;
   height: 72px;
 

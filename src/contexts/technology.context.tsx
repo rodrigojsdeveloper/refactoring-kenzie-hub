@@ -1,11 +1,11 @@
 import { createContext, useState } from "react";
 import { toast } from "react-toastify";
-import api from "../../services/api";
+import api from "../services/api";
 import {
   IChildren,
   ITechnologyProps,
   ITechnologyContextData,
-} from "../../interfaces";
+} from "../interfaces";
 
 const TechnologyContext = createContext({} as ITechnologyContextData);
 

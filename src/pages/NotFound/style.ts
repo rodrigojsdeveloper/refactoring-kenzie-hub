@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Container = styled.div`
+const Container = styled.main`
   min-height: 100vh;
 
   display: flex;
