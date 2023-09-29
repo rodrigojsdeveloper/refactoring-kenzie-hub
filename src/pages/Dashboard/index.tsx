@@ -11,7 +11,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!token) return navigate("/signin");
+    if (!token) return navigate("/");
   }, [token]);
 
   return (

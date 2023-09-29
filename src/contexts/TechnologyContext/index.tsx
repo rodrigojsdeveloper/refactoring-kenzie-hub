@@ -10,8 +10,6 @@ import {
 const TechnologyContext = createContext({} as ITechnologyContextData);
 
 const TechnologyContextProvider = ({ children }: IChildren) => {
-  const id = localStorage.getItem("Kenzie Hub: id");
-
   const token = localStorage.getItem("Kenzie Hub: token");
 
   const [technologies, setTechnologies] = useState<ITechnologyProps[]>([]);
@@ -20,17 +18,20 @@ const TechnologyContextProvider = ({ children }: IChildren) => {
     setTechnologies([...technologies, technology]);
 
   const fetchTechnologies = (
-    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>,
+    id: string | null
   ) => {
-    api
-      .get(`users/${id}`)
-      .then((res) => {
-        handleAddToTechnology(res.data.techs);
+    if (id) {
+      api
+        .get(`users/${id}`)
+        .then((res) => {
+          handleAddToTechnology(res.data.techs);
 
-        setTechnologies(res.data.techs);
-      })
-      .catch((error) => console.error("error", error))
-      .finally(() => setLoading(false));
+          setTechnologies(res.data.techs);
+        })
+        .catch((error) => console.error("error", error))
+        .finally(() => setLoading(false));
+    }
   };
 
   const handlePostTechnologies = (

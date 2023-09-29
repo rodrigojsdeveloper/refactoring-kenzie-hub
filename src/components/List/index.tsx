@@ -9,6 +9,8 @@ import { Button } from "../Button";
 import { Empty } from "../Empty";
 
 const List = () => {
+  const id = localStorage.getItem("Kenzie Hub: id");
+
   const { technologies, fetchTechnologies } = useContext(TechnologyContext);
 
   const [modal, setModal] = useState<boolean>(false);
@@ -16,7 +18,7 @@ const List = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetchTechnologies(setLoading);
+    fetchTechnologies(setLoading, id);
   }, []);
 
   return (

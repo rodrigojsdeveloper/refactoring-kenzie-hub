@@ -85,7 +85,8 @@ export interface ITechnologyContextData {
   technologies: ITechnologyProps[];
   setTechnologies: React.Dispatch<React.SetStateAction<ITechnologyProps[]>>;
   fetchTechnologies: (
-    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>,
+    id: string | null
   ) => void;
   handleAddToTechnology: (technology: ITechnologyProps) => void;
   handlePostTechnologies: (
