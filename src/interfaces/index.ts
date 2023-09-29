@@ -33,7 +33,7 @@ export interface ISelectProps {
   id: string;
 }
 
-export interface IUser {
+export interface IUserProps {
   id: string;
   name: string;
   email: string;

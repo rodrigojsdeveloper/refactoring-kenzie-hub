@@ -48,6 +48,7 @@ export default createGlobalStyle`
 
   button, a, select {
     cursor: pointer;
+    transition: 0.5s;
   }
 
   a {

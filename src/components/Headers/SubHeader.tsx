@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { IUser } from "../../interfaces";
+import { IUserProps } from "../../interfaces";
 import api from "../../services/api";
 import { Container } from "./style";
 
 const SubHeader = () => {
   const id = localStorage.getItem("Kenzie Hub: id");
 
-  const [user, setUser] = useState<IUser>({} as IUser);
+  const [user, setUser] = useState<IUserProps>({} as IUserProps);
 
   useEffect(() => {
     api

@@ -5,7 +5,7 @@ import { Container } from "./style";
 import React from "react";
 
 const NotFound = () => {
-  const token = localStorage.getItem("Kenzie Hub: token") ?? "";
+  const token = localStorage.getItem("Kenzie Hub: token");
 
   const navigate = useNavigate();
 

@@ -6,7 +6,7 @@ import { List } from "../../components/List";
 import React, { useEffect } from "react";
 
 const Dashboard = () => {
-  const token = localStorage.getItem("Kenzie Hub: token") ?? "";
+  const token = localStorage.getItem("Kenzie Hub: token");
 
   const navigate = useNavigate();
 

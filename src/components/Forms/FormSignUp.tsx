@@ -1,5 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
+import { IUserProps } from "../../interfaces";
 import { FormLayout } from "./form.layout";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -34,17 +35,17 @@ const FormSignUp = () => {
         /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
         "A senha deve conter letras maiúsculas e minúsculas, números e caracteres especiais"
       )
-      .oneOf([yup.ref("password")], "Passwords must match"),
+      .oneOf([yup.ref("password")], "As senhas devem corresponder"),
     bio: yup.string().required("Bio obrigatória"),
     contact: yup.string().required("Contato obrigatório"),
     course_module: yup.string().required("Módulo obrigatório"),
   });
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const onSubmitFunction = (data: object) => {
+  const onSubmitFunction = (data: Partial<IUserProps>) => {
     setIsLoading(true);
 
     Reflect.deleteProperty(data, "repeat_password");
@@ -54,6 +55,7 @@ const FormSignUp = () => {
       .then(() => {
         toast.success("Conta criada com sucesso!");
 
+        reset();
         navigate("/");
       })
       .catch((error) => {

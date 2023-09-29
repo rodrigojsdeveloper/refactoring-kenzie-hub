@@ -10,7 +10,6 @@ const Container = styled.button<IButtonStyle>`
   line-height: 26.39px;
   color: var(--grey-0);
 
-  transition: 0.4s;
   border-radius: var(--border-radius);
 
   ${({ color }) => {

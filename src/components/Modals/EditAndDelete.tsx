@@ -20,12 +20,12 @@ const ModalEditAndDeleteTechnology = ({
   const { handleEditTecnology, handleDeleteTechnology } =
     useContext(TechnologyContext);
 
-  const [isLoadingEdit, setIsLoadingEdit] = useState(false);
+  const [isLoadingEdit, setIsLoadingEdit] = useState<boolean>(false);
 
-  const [isLoadingDelete, setIsLoadingDelete] = useState(false);
+  const [isLoadingDelete, setIsLoadingDelete] = useState<boolean>(false);
 
   const schema = yup.object().shape({
-    status: yup.string().required(),
+    status: yup.string().required("Status obrigatório"),
   });
 
   const { register, handleSubmit } = useForm({
@@ -54,13 +54,10 @@ const ModalEditAndDeleteTechnology = ({
           label="Selecionar status"
           register={register}
           name="status"
-          defaultValue=""
+          defaultValue={currentTechnology.status}
           htmlFor="status"
           id="status"
         >
-          <option value="" disabled>
-            Selecione a Tecnologia
-          </option>
           <option value="Iniciante">Iniciante</option>
           <option value="Intermediário">Intermediário</option>
           <option value="Avançado">Avançado</option>

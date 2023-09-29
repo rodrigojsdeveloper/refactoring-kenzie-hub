@@ -13,14 +13,11 @@ import * as yup from "yup";
 const ModalCreateTechnology = ({ setModal }: IModalCreateTechnology) => {
   const { handlePostTechnologies } = useContext(TechnologyContext);
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const schema = yup.object().shape({
-    title: yup
-      .string()
-      .min(2, "Mínimo 2 caracteres")
-      .required("Campo obrigatório"),
-    status: yup.string().required("Campo obrigatório"),
+    title: yup.string().required("Título obrigatório"),
+    status: yup.string().required("Status obrigatório"),
   });
 
   const { register, handleSubmit } = useForm({

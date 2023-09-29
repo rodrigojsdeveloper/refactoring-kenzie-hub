@@ -1,5 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
+import { IUserProps } from "../../interfaces";
 import { FormLayout } from "./form.layout";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -19,11 +20,11 @@ const FormSignIn = () => {
     password: yup.string().required("Senha obrigatória"),
   });
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const onSubmitFunction = (data: any) => {
+  const onSubmitFunction = (data: Partial<IUserProps>) => {
     setIsLoading(true);
 
     api
@@ -35,7 +36,8 @@ const FormSignIn = () => {
 
         toast.success("Você fez login com sucesso!");
 
-        return navigate("/dashboard");
+        reset();
+        navigate("/dashboard");
       })
       .catch((error) => {
         toast.error("Erro ao entrar na conta, verifique seu email ou senha!");

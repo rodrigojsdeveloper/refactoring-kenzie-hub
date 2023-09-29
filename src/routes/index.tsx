@@ -1,4 +1,4 @@
-import { NotFound } from "../pages/NotFound/inde";
+import { NotFound } from "../pages/NotFound";
 import { Routes, Route } from "react-router-dom";
 import { Dashboard } from "../pages/Dashboard";
 import { SignUp } from "../pages/SignUp";

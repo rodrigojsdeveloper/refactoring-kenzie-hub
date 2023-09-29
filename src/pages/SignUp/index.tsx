@@ -7,7 +7,7 @@ import { Logo } from "../../components/Logo";
 import React, { useEffect } from "react";
 
 const SignUp = () => {
-  const token = localStorage.getItem("Kenzie Hub: token") ?? "";
+  const token = localStorage.getItem("Kenzie Hub: token");
 
   const navigate = useNavigate();
 

@@ -6,7 +6,7 @@ import React, { useEffect } from "react";
 import { Container } from "./style";
 
 const SignIn = () => {
-  const token = localStorage.getItem("Kenzie Hub: token") ?? "";
+  const token = localStorage.getItem("Kenzie Hub: token");
 
   const navigate = useNavigate();
 
