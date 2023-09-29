@@ -5,6 +5,24 @@
 </div>
 <br />
 
+## Clonando o Repositório
+
+Você pode clonar este repositório usando o seguinte comando:
+
+```
+git clone https://github.com/rodrigojsdeveloper/refactoring-kenzie-hub.git
+```
+## Gerenciador de Pacotes
+
+Este projeto utiliza o Yarn como gerenciador de pacotes. Certifique-se de tê-lo instalado antes de prosseguir. Se ainda não o possui, você pode baixá-lo <a href="https://classic.yarnpkg.com/lang/en/docs/install">aqui</a>.
+
+### Aviso:
+
+Embora o Yarn seja o gerenciador de pacotes recomendado para este projeto, você também pode usar o NPM executando os seguintes comandos em vez dos comandos de Yarn mencionados acima:
+
+- Para instalar as dependências: npm install
+- Para iniciar o Kenzie Hub: npm run dev
+
 ## Instalação das Dependências
 
 Para instalar as dependências do projeto, abra o terminal na raiz e execute o seguinte comando:
