@@ -15,7 +15,7 @@ const TechnologyContextProvider = ({ children }: IChildren) => {
   const [technologies, setTechnologies] = useState<ITechnologyProps[]>([]);
 
   const handleAddToTechnology = (technology: ITechnologyProps) =>
-    setTechnologies([...technologies, technology]);
+    setTechnologies([technology, ...technologies]);
 
   const fetchTechnologies = (
     setLoading: React.Dispatch<React.SetStateAction<boolean>>,
