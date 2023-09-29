@@ -23,12 +23,7 @@ export default createGlobalStyle`
     --grey-2: #343B41;
     --grey-3: #212529;
     --grey-4: #121214;
-
     --grey-hover: #646C75;
-
-    // Feedback Palette
-    --sucess: #3FE864;
-    --negative: #E83F5B;
 
     // Shadow
 		--shadow-0: rgba(0, 0, 0, 0.4);

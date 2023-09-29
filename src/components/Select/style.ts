@@ -48,7 +48,7 @@ const Container = styled.div`
     }
 
     &:focus::placeholder {
-      color: transparent;
+      color: var(--transparent);
     }
 
     &:disabled {

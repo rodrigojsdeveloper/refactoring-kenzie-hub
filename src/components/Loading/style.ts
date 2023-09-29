@@ -24,7 +24,8 @@ const Container = styled.div`
       border: 3px solid var(--grey-2);
       border-radius: 50%;
       animation: ${ldsRingAnimation} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-      border-color: var(--grey-2) transparent transparent transparent;
+      border-color: var(--grey-2) var(--transparent) var(--transparent)
+        var(--transparent);
     }
 
     div:nth-child(1) {
