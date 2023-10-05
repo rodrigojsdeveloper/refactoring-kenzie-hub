@@ -21,6 +21,7 @@ export interface InputProps {
   disabled?: boolean;
   defaultValue?: string | number | readonly string[];
   value?: string | number | readonly string[];
+  error?: any;
 }
 
 export interface ISelectProps {
@@ -31,6 +32,7 @@ export interface ISelectProps {
   children: React.ReactNode;
   htmlFor: string;
   id: string;
+  error: any;
 }
 
 export interface IUserProps {

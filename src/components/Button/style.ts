@@ -5,6 +5,10 @@ const Container = styled.button<IButtonStyle>`
   width: 100%;
   height: 48px;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   font-weight: 500;
   font-size: 16px;
   line-height: 26.39px;

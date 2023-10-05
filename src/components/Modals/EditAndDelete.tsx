@@ -1,5 +1,6 @@
 import { TechnologyContext } from "../../contexts/technology.context";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { LoadingSpinner } from "../LoadingSpinner";
 import { HeaderModal } from "../HeaderModal";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -25,10 +26,14 @@ const ModalEditAndDeleteTechnology = ({
   const [isLoadingDelete, setIsLoadingDelete] = useState<boolean>(false);
 
   const schema = yup.object().shape({
-    status: yup.string().required("Status obrigatório"),
+    status: yup.string().required("Status obrigatório."),
   });
 
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -57,6 +62,7 @@ const ModalEditAndDeleteTechnology = ({
           defaultValue={currentTechnology.status}
           htmlFor="status"
           id="status"
+          error={errors.status?.message}
         >
           <option value="Iniciante">Iniciante</option>
           <option value="Intermediário">Intermediário</option>
@@ -70,7 +76,7 @@ const ModalEditAndDeleteTechnology = ({
             color="pink"
             disabled={isLoadingEdit}
           >
-            {isLoadingEdit ? "Alterando..." : "Salvar alterações"}
+            {isLoadingEdit ? <LoadingSpinner /> : "Salvar alterações"}
           </Button>
           <Button
             onClick={() =>
@@ -84,7 +90,7 @@ const ModalEditAndDeleteTechnology = ({
             color="gray"
             disabled={isLoadingDelete}
           >
-            {isLoadingDelete ? "Excluindo..." : "Excluir"}
+            {isLoadingDelete ? <LoadingSpinner /> : "Excluir"}
           </Button>
         </div>
       </form>

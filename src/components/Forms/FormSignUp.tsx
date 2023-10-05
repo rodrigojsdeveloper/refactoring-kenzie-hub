@@ -1,4 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { LoadingSpinner } from "../LoadingSpinner";
 import { useNavigate } from "react-router-dom";
 import { IUserProps } from "../../interfaces";
 import { FormLayout } from "./form.layout";
@@ -17,31 +18,36 @@ const FormSignUp = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const schema = yup.object().shape({
-    name: yup.string().required("Nome obrigatório"),
-    email: yup.string().required("Email obrigatório").email("Email inválido"),
+    name: yup.string().required("Nome obrigatório."),
+    email: yup.string().required("Email obrigatório.").email("Email inválido."),
     password: yup
       .string()
-      .required("Senha obrigatória")
-      .min(8, "Mínimo 8 caracteres")
+      .required("Senha obrigatória.")
+      .min(8, "No mínimo 8 caracteres.")
       .matches(
         /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
-        "A senha deve conter letras maiúsculas e minúsculas, números e caracteres especiais"
+        "A senha deve incluir letras maiúsculas, minúsculas, números e caracteres especiais."
       ),
     repeat_password: yup
       .string()
-      .required("Senha obrigatória")
-      .min(8, "Mínimo 8 caracteres")
+      .required("Senha obrigatória.")
+      .min(8, "No mínimo 8 caracteres.")
       .matches(
         /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
-        "A senha deve conter letras maiúsculas e minúsculas, números e caracteres especiais"
+        "A senha deve incluir letras maiúsculas, minúsculas, números e caracteres especiais."
       )
-      .oneOf([yup.ref("password")], "As senhas devem corresponder"),
-    bio: yup.string().required("Bio obrigatória"),
-    contact: yup.string().required("Contato obrigatório"),
-    course_module: yup.string().required("Módulo obrigatório"),
+      .oneOf([yup.ref("password")], "As senhas devem coincidir."),
+    bio: yup.string().required("Bio obrigatória."),
+    contact: yup.string().required("Contato obrigatório."),
+    course_module: yup.string().required("Módulo obrigatório."),
   });
 
-  const { register, handleSubmit, reset } = useForm({
+  const {
+    reset,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -82,6 +88,7 @@ const FormSignUp = () => {
         placeholder="Digite aqui seu nome"
         register={register}
         type="text"
+        error={errors.name?.message}
       />
       <Input
         label="Email"
@@ -89,6 +96,7 @@ const FormSignUp = () => {
         placeholder="Digite aqui seu email"
         register={register}
         type="email"
+        error={errors.email?.message}
       />
       <Input
         label="Senha"
@@ -96,6 +104,7 @@ const FormSignUp = () => {
         placeholder="Digite aqui sua senha"
         register={register}
         type="password"
+        error={errors.password?.message}
       />
       <Input
         label="Confirmar Senha"
@@ -103,6 +112,7 @@ const FormSignUp = () => {
         placeholder="Digite novamente sua senha"
         register={register}
         type="password"
+        error={errors.repeat_password?.message}
       />
       <Input
         label="Bio"
@@ -110,6 +120,7 @@ const FormSignUp = () => {
         placeholder="Fale sobre você"
         register={register}
         type="text"
+        error={errors.bio?.message}
       />
       <Input
         label="Contato"
@@ -117,6 +128,7 @@ const FormSignUp = () => {
         placeholder="Opção de contato"
         register={register}
         type="text"
+        error={errors.contact?.message}
       />
       <Select
         label="Selecionar módulo"
@@ -125,6 +137,7 @@ const FormSignUp = () => {
         defaultValue=""
         htmlFor="module"
         id="module"
+        error={errors.course_module?.message}
       >
         <option value="" disabled>
           Selecione o módulo
@@ -138,7 +151,7 @@ const FormSignUp = () => {
       </Select>
 
       <Button type="submit" color="pink" disabled={isLoading}>
-        {isLoading ? "Cadastrando..." : "Cadastrar"}
+        {isLoading ? <LoadingSpinner /> : "Cadastrar"}
       </Button>
     </FormLayout>
   );

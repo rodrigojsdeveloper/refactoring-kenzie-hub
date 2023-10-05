@@ -32,6 +32,9 @@ export default createGlobalStyle`
     // Transparent
     --transparent: transparent;
 
+    // Red
+    --red: rgb(217,48,37);
+
     // Border Radius
     --border-radius: 2px;
   }

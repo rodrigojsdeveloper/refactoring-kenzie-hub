@@ -1,4 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { LoadingSpinner } from "../LoadingSpinner";
 import { useNavigate } from "react-router-dom";
 import { IUserProps } from "../../interfaces";
 import { FormLayout } from "./form.layout";
@@ -16,11 +17,16 @@ const FormSignIn = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const schema = yup.object().shape({
-    email: yup.string().required("Email obrigatório").email("Email inválido"),
-    password: yup.string().required("Senha obrigatória"),
+    email: yup.string().required("Email obrigatório.").email("Email inválido."),
+    password: yup.string().required("Senha obrigatória."),
   });
 
-  const { register, handleSubmit, reset } = useForm({
+  const {
+    reset,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -57,6 +63,7 @@ const FormSignIn = () => {
         placeholder="Digite aqui seu email"
         register={register}
         type="email"
+        error={errors.email?.message}
       />
       <Input
         label="Senha"
@@ -64,11 +71,12 @@ const FormSignIn = () => {
         placeholder="Digite aqui sua senha"
         register={register}
         type="password"
+        error={errors.password?.message}
       />
 
       <div className="divButtons">
         <Button type="submit" color="pink" disabled={isLoading}>
-          {isLoading ? "Entrando..." : "Entrar"}
+          {isLoading ? <LoadingSpinner /> : "Entrar"}
         </Button>
 
         <p>Ainda não possui uma conta?</p>

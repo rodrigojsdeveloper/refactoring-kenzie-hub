@@ -2,19 +2,20 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  height: 75px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
 
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 
   & > label {
     font-weight: 400;
     font-size: 12.18px;
     line-height: 14px;
+
+    margin-bottom: 13px;
   }
 
   & > input {
@@ -53,6 +54,27 @@ const Container = styled.div`
 
       font-size: 14px;
       line-height: 21.1px;
+    }
+  }
+
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 5px;
+
+    & > span {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      color: var(--red);
+    }
+
+    & > svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
     }
   }
 `;

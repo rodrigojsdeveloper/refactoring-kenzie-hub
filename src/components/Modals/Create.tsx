@@ -1,6 +1,7 @@
 import { TechnologyContext } from "../../contexts/technology.context";
 import { IModal, ITechnologyProps } from "../../interfaces";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { LoadingSpinner } from "../LoadingSpinner";
 import { useContext, useState } from "react";
 import { HeaderModal } from "../HeaderModal";
 import { useForm } from "react-hook-form";
@@ -16,11 +17,15 @@ const ModalCreateTechnology = ({ setModal }: IModal) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const schema = yup.object().shape({
-    title: yup.string().required("Título obrigatório"),
-    status: yup.string().required("Status obrigatório"),
+    title: yup.string().required("Título obrigatório."),
+    status: yup.string().required("Status obrigatório."),
   });
 
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -38,6 +43,7 @@ const ModalCreateTechnology = ({ setModal }: IModal) => {
           placeholder="Digite aqui a tecnologia"
           register={register}
           type="text"
+          error={errors.title?.message}
         />
         <Select
           label="Selecionar status"
@@ -46,6 +52,7 @@ const ModalCreateTechnology = ({ setModal }: IModal) => {
           defaultValue=""
           htmlFor="status"
           id="status"
+          error={errors.status?.message}
         >
           <option value="" disabled>
             Selecione a Tecnologia
@@ -56,7 +63,7 @@ const ModalCreateTechnology = ({ setModal }: IModal) => {
         </Select>
 
         <Button type="submit" color="pink" disabled={isLoading}>
-          {isLoading ? "Cadastrando..." : "Cadastrar Tecnologia"}
+          {isLoading ? <LoadingSpinner /> : "Cadastrar Tecnologia"}
         </Button>
       </form>
     </Container>
