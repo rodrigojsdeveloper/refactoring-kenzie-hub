@@ -21,10 +21,6 @@ const Container = styled.div`
     color: var(--grey-1);
     background-color: var(--transparent);
   }
-
-  @media (max-width: 425px) {
-    padding: 15px 10px;
-  }
 `;
 
 export { Container };

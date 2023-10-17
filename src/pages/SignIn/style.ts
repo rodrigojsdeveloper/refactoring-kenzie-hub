@@ -7,7 +7,7 @@ const Container = styled.main`
   justify-content: center;
   align-items: center;
 
-  padding: 49.46px 12px 46px 12px;
+  padding: 49.46px 8px 46px 8px;
 
   animation: ${animationForm} 1s;
 

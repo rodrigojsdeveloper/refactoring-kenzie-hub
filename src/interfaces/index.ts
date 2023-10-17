@@ -56,10 +56,6 @@ export interface ITechnology {
   technology: ITechnologyProps;
 }
 
-export interface IChildren {
-  children: React.ReactNode;
-}
-
 export interface IModal {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -76,7 +72,7 @@ export interface IModalEditAndDeleteTechnology extends IModal {
   currentTechnology: ITechnologyProps;
 }
 
-export interface IFormLayoutProps extends IChildren {
+export interface IFormLayoutProps {
   onSubmit: React.FormEventHandler<HTMLFormElement>;
 }
 

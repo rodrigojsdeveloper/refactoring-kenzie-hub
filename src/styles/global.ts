@@ -52,10 +52,6 @@ export default createGlobalStyle`
   a {
     text-decoration: none;
   }
-  
-  &:disabled {
-    cursor: not-allowed;
-  }
 
   ::-webkit-scrollbar {
     width: 6px;

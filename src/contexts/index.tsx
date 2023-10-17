@@ -1,7 +1,7 @@
 import { TechnologyContextProvider } from "./technology.context";
-import { IChildren } from "../interfaces";
+import { PropsWithChildren } from "react";
 
-const Providers = ({ children }: IChildren) => {
+const Providers = ({ children }: PropsWithChildren) => {
   return <TechnologyContextProvider>{children}</TechnologyContextProvider>;
 };
 

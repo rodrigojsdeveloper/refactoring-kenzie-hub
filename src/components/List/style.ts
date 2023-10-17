@@ -5,7 +5,7 @@ const Container = styled.div`
   max-width: 798px;
   height: 469px;
 
-  padding: 0 12px;
+  padding: 0 8px;
   margin: 0 auto 14.63px auto;
 
   & > .divTecnologies {
@@ -39,8 +39,8 @@ const Container = styled.div`
       border-radius: var(--border-radius);
     }
 
-    @media (max-width: 425px) {
-      padding: 15px 10px;
+    @media (max-width: 640px) {
+      padding: 15px;
     }
   }
 `;

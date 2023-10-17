@@ -1,15 +1,11 @@
-import { createContext, useState } from "react";
+import { ITechnologyProps, ITechnologyContextData } from "../interfaces";
+import { createContext, useState, PropsWithChildren } from "react";
 import { toast } from "react-toastify";
 import api from "../services/api";
-import {
-  IChildren,
-  ITechnologyProps,
-  ITechnologyContextData,
-} from "../interfaces";
 
 const TechnologyContext = createContext({} as ITechnologyContextData);
 
-const TechnologyContextProvider = ({ children }: IChildren) => {
+const TechnologyContextProvider = ({ children }: PropsWithChildren) => {
   const token = localStorage.getItem("Kenzie Hub: token");
 
   const [technologies, setTechnologies] = useState<ITechnologyProps[]>([]);
@@ -135,18 +131,18 @@ const TechnologyContextProvider = ({ children }: IChildren) => {
       .finally(() => setIsLoadingDelete(false));
   };
 
+  const technologyContextData: ITechnologyContextData = {
+    technologies,
+    setTechnologies,
+    fetchTechnologies,
+    handleAddToTechnology,
+    handlePostTechnologies,
+    handleEditTecnology,
+    handleDeleteTechnology,
+  };
+
   return (
-    <TechnologyContext.Provider
-      value={{
-        technologies,
-        setTechnologies,
-        fetchTechnologies,
-        handleAddToTechnology,
-        handlePostTechnologies,
-        handleEditTecnology,
-        handleDeleteTechnology,
-      }}
-    >
+    <TechnologyContext.Provider value={technologyContextData}>
       {children}
     </TechnologyContext.Provider>
   );

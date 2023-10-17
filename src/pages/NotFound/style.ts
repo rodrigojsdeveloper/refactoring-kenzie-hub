@@ -8,7 +8,7 @@ const Container = styled.main`
   justify-content: space-evenly;
   align-items: center;
 
-  padding: 10px;
+  padding: 8px;
 
   & > div {
     & > h1 {

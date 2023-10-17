@@ -1,7 +1,7 @@
-import { IChildren } from "../../interfaces";
+import { PropsWithChildren } from "react";
 import { Container } from "./style";
 
-const ModalBackground = ({ children }: IChildren) => {
+const ModalBackground = ({ children }: PropsWithChildren) => {
   return <Container>{children}</Container>;
 };
 

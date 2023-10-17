@@ -9,7 +9,7 @@ const Container = styled.header<IHeaderStyle>`
   justify-content: center;
   align-items: center;
 
-  padding: 17px 10.7px;
+  padding: 17px 8px;
   border-bottom: 1.5px solid var(--grey-3);
 
   ${({ height }) => {
@@ -44,15 +44,6 @@ const Container = styled.header<IHeaderStyle>`
       line-height: 22px;
 
       color: var(--grey-1);
-    }
-  }
-
-  @media (max-width: 425px) {
-    .divSubHeader {
-      height: 60px;
-
-      flex-direction: column;
-      align-items: flex-start;
     }
   }
 `;
