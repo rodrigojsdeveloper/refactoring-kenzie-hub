@@ -11,7 +11,6 @@ const Container = styled.div`
   background-color: var(--grey-4);
   border-radius: var(--border-radius);
 
-  margin-bottom: 14px;
   padding: 13px 22.22px;
 
   cursor: pointer;
@@ -37,7 +36,7 @@ const Container = styled.div`
     color: var(--grey-1);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     padding: 12.18px;
   }
 `;

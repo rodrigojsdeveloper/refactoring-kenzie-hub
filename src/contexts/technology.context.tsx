@@ -60,7 +60,7 @@ const TechnologyContextProvider = ({ children }: PropsWithChildren) => {
 
   const handleEditTecnology = (
     setIsLoadingEdit: React.Dispatch<React.SetStateAction<boolean>>,
-    data: any,
+    data: ITechnologyProps,
     currentTechnology: ITechnologyProps,
     setModal: React.Dispatch<React.SetStateAction<boolean>>
   ) => {

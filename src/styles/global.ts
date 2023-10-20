@@ -13,9 +13,10 @@ export default createGlobalStyle`
 
   :root {
     // Primary Palette
-    --color-primary: #FF577F;
+    --color-primary: rgb(255, 87, 127);
     --color-primary-focus: #FF427F;
     --color-primary-negative: #59323F;
+    --color-primary-01: rgba(255, 87, 127, 0.1);
 
     // Grey Scale Palette
     --grey-0: #F8F9FA;
@@ -64,5 +65,9 @@ export default createGlobalStyle`
   ::-webkit-scrollbar-thumb {
     border-radius: 0.5px;
     background-color: var(--grey-2);
+  }
+
+  ::selection {
+    background-color: var(--color-primary-01);
   }
 `;

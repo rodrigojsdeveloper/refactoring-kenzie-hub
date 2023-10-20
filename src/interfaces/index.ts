@@ -35,6 +35,12 @@ export interface ISelectProps {
   error: any;
 }
 
+export interface ITechnologyProps {
+  id: string;
+  title: string;
+  status: string;
+}
+
 export interface IUserProps {
   id: string;
   name: string;
@@ -43,13 +49,7 @@ export interface IUserProps {
   course_module: string;
   bio: string;
   contact: string;
-  techs: [];
-}
-
-export interface ITechnologyProps {
-  id: string;
-  title: string;
-  status: string;
+  techs: ITechnologyProps[];
 }
 
 export interface ITechnology {
@@ -91,7 +91,7 @@ export interface ITechnologyContextData {
   ) => void;
   handleEditTecnology: (
     setIsLoadingEdit: React.Dispatch<React.SetStateAction<boolean>>,
-    data: any,
+    data: ITechnologyProps,
     currentTechnology: ITechnologyProps,
     setModal: React.Dispatch<React.SetStateAction<boolean>>
   ) => void;

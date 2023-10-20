@@ -28,6 +28,10 @@ const Container = styled.div`
     width: 100%;
     height: 416px;
 
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+
     padding: 23px 26px;
     background-color: var(--grey-3);
     border-radius: var(--border-radius);
